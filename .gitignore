@@ -1,0 +1,15 @@
+# C++ binaries
+*.o
+*.exe
+
+#eclipse metada - polutes commits
+.metadata
+
+#EAP temps
+*.ldb
+
+#Java binaries
+*.class
+
+#JavaCC Trash
+*.jj
