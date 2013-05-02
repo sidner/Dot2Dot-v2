@@ -1,0 +1,207 @@
+options
+{
+LOOKAHEAD=1;
+STATIC = false;
+MULTI = true;
+}
+PARSER_BEGIN(Dot2Dot)
+import java.io.*;
+
+
+public class Dot2Dot
+{
+  
+public static void main(String args[]) throws ParseException,IOException {
+	  String dataLine = "";
+        String temp = "";
+        
+        File inFile = new File(args[0]);
+        BufferedReader bf = null;
+		try {
+			bf = new BufferedReader(new InputStreamReader (new FileInputStream(inFile)));
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+    
+			while((dataLine=bf.readLine()) != null){
+					temp += dataLine;
+			 }
+        try {
+			bf.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+        InputStream input = new ByteArrayInputStream(temp.getBytes());
+
+        Dot2Dot dot2dot = new Dot2Dot(input);
+	SimpleNode root = dot2dot.DotGraph(); // devolve referência para o nó raiz da árvore
+	root.dump(""); // imprime no ecrã a árvore
+	System.out.println("\n\n\n");
+	}
+}
+PARSER_END(Dot2Dot)
+
+SKIP :
+{
+  //Semicolons aid readability but are not required except in the rare case that a named subgraph
+  //with no body immediately preceeds an anonymous subgraph
+  " " | "\r" | "\t" |"\0"
+}
+
+// definição dos tokens (símbolos terminais)
+TOKEN:
+{
+  //What comes after this token is ignored if it is preceded by a <LF>
+  < CARDINAL: "#" >
+}
+
+TOKEN [IGNORE_CASE] :
+{
+  < GRAPH : "digraph" | "graph" > |
+  < STRICT: "strict" > |
+  < ATTR_SMT: "graph" | "node" | "edge" > |
+  < SUBGRAPH: "subgraph" >
+}
+TOKEN :
+{
+  < COMPASS_PT: "n" | "ne" | "e" | "se" | "s" | "sw" | "w" | "nw" | "c" | "_" >
+}
+
+TOKEN :
+{
+  < NODE: "node" >
+}
+TOKEN :
+{
+  //TODO ID use cases incomplete
+  < ID:  (<INTEGER>)+ | (<STRING>)  | ((["a"-"z","A"-"Z","_","#"])+ (<INTEGER>)?)+ >   
+}
+
+TOKEN :
+{
+ < INTEGER : (["0" - "9"])(["0" - "9"])* >
+ | < LF : "\n" >
+}
+
+TOKEN:
+{
+  	< EDGEOP_DIRECTED: "->" > |
+  	< EDGEOP_UNDIRECTED: "--" >
+}
+
+TOKEN :
+{
+  < LBRACK: ("{" (<LF>)? )> |
+  < RBRACK: "}" > |
+  < LSQBRACK: "[" > |
+  < RSQBRACK: "]" > |
+  < COLON: ":" > |
+  < SEMICOLON: ";" > |
+  < EQUALS: "=" > |
+  < COMMA: "," > 
+}
+TOKEN :{
+< STRING: ("\"") ( (<INTEGER>)? | ( (<INTEGER>)?(["a"-"z","A"-"Z","_","#"," ",".","\\","/","{","}",
+"[","]",":",";","=",",",">","<","(",")","-","+","\'"])+ (<INTEGER>)?)+) ("\"") >
+}
+SimpleNode DotGraph(): {} 
+{
+	Graph() {return jjtThis;} // código Java entre chavetas
+}
+
+void Graph( )#void: {Token id = null;}
+{
+  [< STRICT >] < GRAPH > [id = < ID >] < LBRACK > [Stmt_list()] < RBRACK >
+  
+  { jjtThis.value = id.image; 
+  	System.out.println("id.image" + " " + id.image);
+  } #test(1)
+}
+
+void Stmt_list() #void: {}
+{
+  Stmt() [< SEMICOLON >] [Stmt_list()] 
+}
+
+void Stmt() #void: {}
+{
+	 Attr_smt()
+	| Subgraph()
+	| Nova()
+
+
+/*	Node_stmt()|
+	Edge_stmt()
+	| Attr_smt()
+	| < ID > < EQUALS > < ID >
+	| Subgraph()  */
+}
+void Nova(): {Token id = null;}
+{
+  id = < ID > (< EQUALS > <ID > | Edge_stmt_temp())
+  { jjtThis.value = id.image; }  
+}
+
+
+/*
+void Node_stmt(): {}
+{
+  Node_id()[Attr_list()]
+}*/
+
+void Edge_stmt_temp() #void: {}
+{
+	[Port()] (Temo() | [Attr_list()])
+}
+void Edge_stmt(): {}
+{
+  Edge_stmt_temp() | (Subgraph() Temo()) 
+     
+ /* [Node_id() | Subgraph()] EdgeRHS() [Attr_list()] */
+}
+
+void Attr_smt() #void: {}
+{
+  < ATTR_SMT > Attr_list()
+}
+
+void Node_id(): {Token id;}
+{	
+  id = < ID > [Port()]
+  { jjtThis.value = id.image; }
+}
+
+void Attr_list() #void: {}
+{
+  < LSQBRACK > [A_list()] < RSQBRACK > [Attr_list()] 
+}
+
+void A_list(): {Token attr = null;}
+{
+	< ID >  < EQUALS > attr = < ID > [< COMMA >] [A_list()]	
+	 { jjtThis.value = attr.image; }
+}
+
+void Subgraph(): {}
+{
+	[< SUBGRAPH > [< ID >]] < LBRACK > Stmt_list() < RBRACK >
+}
+
+void Temo() #void: {}
+{
+  EdgeRHS() [Attr_list()]
+}
+
+void EdgeRHS(): {Token directed = null; Token undirected = null;}
+{
+  ( (directed = < EDGEOP_DIRECTED > { jjtThis.value = directed.image; }) 
+  | (undirected = < EDGEOP_UNDIRECTED > { jjtThis.value = undirected.image; }) ) (Node_id() | Subgraph()) [EdgeRHS()]
+}
+
+void Port(): {}
+{
+  < COLON > ( < ID > [< COLON > < COMPASS_PT >] | < COMPASS_PT > )
+}
