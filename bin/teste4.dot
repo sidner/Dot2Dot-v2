@@ -1,0 +1,8 @@
+graph G {
+  1 [ label="r_fact" ];
+  2 [ label="r1" ];
+  3 [ label="r2" ];
+  1 -- 2 [ label="(r_fact : r1)" ];
+  3 -- 2 [ label="(r2 : r1)" ];
+  3 -- 1 [ label="(r2 : r_fact)" ];
+}

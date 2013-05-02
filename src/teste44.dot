@@ -1,0 +1,16 @@
+graph G {
+  1 [ label="r_sum" ];
+  2 [ label="rn" ];
+  3 [ label="rc" ];
+  4 [ label="r_val" ];
+  5 [ label="r3" ];
+  1 -- 2 [ label="(r_sum : rn)" ];
+  3 -- 2 [ label="(rc : rn)" ];
+  3 -- 1 [ label="(rc : r_sum)" ];
+  5 -- 3 [ label="(r3 : rc)" ];
+  5 -- 2 [ label="(r3 : rn)" ];
+  5 -- 1 [ label="(r3 : r_sum)" ];
+  4 -- 3 [ label="(r_val : rc)" ];
+  4 -- 2 [ label="(r_val : rn)" ];
+  4 -- 1 [ label="(r_val : r_sum)" ];
+}

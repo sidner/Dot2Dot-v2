@@ -1,0 +1,37 @@
+digraph G {
+  1 [ label="\{outputS\} \[ILOC add numbers calculation\n\n\]" ];
+  2 [ label="\{outputS\} \[Enter the number of integers you want to add\n\]" ];
+  3 [ label="\{inputIntToReg\} =\> \[rn\]" ];
+  4 [ label="\{outputS\} \[Enter \]" ];
+  5 [ label="\{outputR\} \[rn\]" ];
+  6 [ label="\{outputS\} \[ integers\n\]" ];
+  7 [ label="\{loadI\} \[0\] =\> \[r_sum\]" ];
+  8 [ label="\{loadI\} \[1\] =\> \[rc\]" ];
+  9 [ label="L_start: \{comp\} \[rc\], \[rn\] =\> \[cc1\]" ];
+  10 [ label="\{cbr_LE\} \[cc1\] =\> \[L_cont\], \[L_end\]" ];
+  11 [ label="L_cont: \{inputIntToReg\} =\> \[r_val\]" ];
+  12 [ label="\{add\} \[r_sum\], \[r_val\] =\> \[r_sum\]" ];
+  13 [ label="\{addI\} \[rc\], \[1\] =\> \[rc\]" ];
+  14 [ label="\{jumpI\} =\> \[L_start\]" ];
+  15 [ label="L_end: \{outputS\} \[Sum of entered integers = \]" ];
+  16 [ label="\{outputR\} \[r_sum\]" ];
+  17 [ label="\{outputS\} \[\n\]" ];
+  1 -> 2 [ label="" ];
+  2 -> 3 [ label="" ];
+  3 -> 4 [ label="" ];
+  4 -> 5 [ label="" ];
+  5 -> 6 [ label="" ];
+  6 -> 7 [ label="" ];
+  7 -> 8 [ label="" ];
+  8 -> 9 [ label="" ];
+  9 -> 10 [ label="" ];
+  10 -> 11 [ label="  L_cont" ];
+  10 -> 15 [ label="  L_end" ];
+  11 -> 12 [ label="" ];
+  12 -> 13 [ label="" ];
+  13 -> 14 [ label="" ];
+  14 -> 9 [ label="  L_start" ];
+  14 -> 15 [ label="" ];
+  15 -> 16 [ label="" ];
+  16 -> 17 [ label="" ];
+}

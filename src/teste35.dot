@@ -1,0 +1,7 @@
+graph G {
+  1 [ label="r_sum" ];
+  2 [ label="cc1" ];
+  3 [ label="r_val" ];
+  2 -- 1 [ label="(cc1 : r_sum)" ];
+  3 -- 1 [ label="(r_val : r_sum)" ];
+}

@@ -1,0 +1,24 @@
+digraph CFG {
+graphs [rankdir = "LR"];
+0 [label="loadI", fontname="Tahoma"]
+0->1
+ 
+1 [label="addI", fontname="Tahoma"]
+1->2
+ 
+2 [label="add", fontname="Tahoma"]
+2->3
+ 
+3 [label="sub", fontname="Tahoma"]
+3->4
+ 
+4 [label="rsubI", fontname="Tahoma"]
+4->5
+ 
+5 [label="load", fontname="Tahoma"]
+5->6
+ 
+6 [label="jumpI", fontname="Tahoma"]
+6->5
+ 
+}

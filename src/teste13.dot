@@ -1,0 +1,31 @@
+digraph G {
+  1 [ label="\{outputS\} \[--\> ILOC c conversion test \<--\n\n\]" ];
+  2 [ label="\{outputS\} \[=\> load vars tests\n\n\]" ];
+  3 [ label="\{loadI\} \[5\] =\> \[r1\]" ];
+  4 [ label="\{loadI\} \[10\] =\> \[r2\]" ];
+  5 [ label="\{add\} \[r1\], \[r2\] =\> \[r3\]" ];
+  6 [ label="\{outputS\} \[5+10=\]" ];
+  7 [ label="\{outputR\} \[r3\]" ];
+  8 [ label="\{outputS\} \[=\> input var tests (var1 + var2 = result)\n\n\]" ];
+  9 [ label="\{outputS\} \[input var1: \]" ];
+  10 [ label="\{inputIntToReg\} =\> \[r7\]" ];
+  11 [ label="\{outputS\} \[input var2: \]" ];
+  12 [ label="\{inputIntToReg\} =\> \[r8\]" ];
+  13 [ label="\{add\} \[r7\], \[r8\] =\> \[r9\]" ];
+  14 [ label="\{outputS\} \[result: \]" ];
+  15 [ label="\{outputR\} \[r9\]" ];
+  1 -> 2 [ label="" ];
+  2 -> 3 [ label="" ];
+  3 -> 4 [ label="" ];
+  4 -> 5 [ label="" ];
+  5 -> 6 [ label="" ];
+  6 -> 7 [ label="" ];
+  7 -> 8 [ label="" ];
+  8 -> 9 [ label="" ];
+  9 -> 10 [ label="" ];
+  10 -> 11 [ label="" ];
+  11 -> 12 [ label="" ];
+  12 -> 13 [ label="" ];
+  13 -> 14 [ label="" ];
+  14 -> 15 [ label="" ];
+}

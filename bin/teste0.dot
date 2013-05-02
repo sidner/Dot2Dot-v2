@@ -1,0 +1,7 @@
+digraph Netlist { 
+"1" [color=white, fontcolor = blue];
+"2gat" [color=white, fontcolor = blue];
+"3gat" [image="NAND.gif" color="white" fontcolor = blue];
+"1gat" -> "3gat";
+"2gat" -> "3gat";
+} 

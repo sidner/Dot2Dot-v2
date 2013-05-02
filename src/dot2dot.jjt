@@ -37,8 +37,8 @@ public static void main(String args[]) throws ParseException,IOException {
         InputStream input = new ByteArrayInputStream(temp.getBytes());
 
         Dot2Dot dot2dot = new Dot2Dot(input);
-	SimpleNode root = dot2dot.DotGraph(); // devolve referÃªncia para o nÃ³ raiz da Ã¡rvore
-	root.dump(""); // imprime no ecrÃ£ a Ã¡rvore
+	SimpleNode root = dot2dot.DotGraph(); // devolve referência para o nó raiz da árvore
+	root.dump(""); // imprime no ecrã a árvore
 	System.out.println("\n\n\n");
 	}
 }
@@ -51,7 +51,7 @@ SKIP :
   " " | "\r" | "\t" |"\0"
 }
 
-// definiÃ§Ã£o dos tokens (sÃ­mbolos terminais)
+// definição dos tokens (símbolos terminais)
 TOKEN:
 {
   //What comes after this token is ignored if it is preceded by a <LF>
@@ -94,27 +94,46 @@ TOKEN:
 
 TOKEN :
 {
-  < LBRACK: ("{" (<LF>)? )> |
-  < RBRACK: "}" > |
+  < LBRACKET: "{"> |
+  < RBRACKET: "}" > |
   < LSQBRACK: "[" > |
   < RSQBRACK: "]" > |
   < COLON: ":" > |
   < SEMICOLON: ";" > |
   < EQUALS: "=" > |
-  < COMMA: "," > 
+  < COMMA: "," > |
+  < DOT: "." >   |
+  < DOUBLE_BACKSLASH: "\\" > |
+  < SLASH : "/" >  |
+  < MAIOR : ">" >  |
+  < LESS: "<" >    |
+  < LPARENTHESIS: "(" >  |
+  < RPARENTHESIS: ")" >  |
+  < MINUS: "-" >  |
+  < PLUS: "+" >   |
+  < PLICA: "\'"> 
 }
-TOKEN :{
-< STRING: ("\"") ( (<INTEGER>)? | ( (<INTEGER>)?(["a"-"z","A"-"Z","_","#"," ",".","\\","/","{","}",
-"[","]",":",";","=",",",">","<","(",")","-","+","\'"])+ (<INTEGER>)?)+) ("\"") >
+
+TOKEN :
+{
+ < SYMBOLS: <DOT> | <DOUBLE_BACKSLASH> | <SLASH> | <LBRACKET> | <RBRACKET> | <LSQBRACK> | <RSQBRACK> |
+ <COLON> | <SEMICOLON> | <EQUALS> | <COMMA> | <MAIOR> | <LESS> | <LPARENTHESIS> | <RPARENTHESIS>  |
+ <MINUS> | <PLUS> | <PLICA> >
+}
+
+
+TOKEN :
+{
+ < STRING: ("\"") ( (<INTEGER>)? | ( (<INTEGER>)? ((["a"-"z","A"-"Z","_","#"," "])?(<SYMBOLS>)?)+ (<INTEGER>)?)+) ("\"") >
 }
 SimpleNode DotGraph(): {} 
 {
-	Graph() {return jjtThis;} // cÃ³digo Java entre chavetas
+	Graph() {return jjtThis;} // código Java entre chavetas
 }
 
 void Graph( )#void: {Token id = null;}
 {
-  [< STRICT >] < GRAPH > [id = < ID >] < LBRACK > [Stmt_list()] < RBRACK >
+  [< STRICT >] < GRAPH > [id = < ID >] < LBRACKET > [Stmt_list()] < RBRACKET >
   
   { jjtThis.value = id.image; 
   	System.out.println("id.image" + " " + id.image);
@@ -187,7 +206,7 @@ void A_list(): {Token attr = null;}
 
 void Subgraph(): {}
 {
-	[< SUBGRAPH > [< ID >]] < LBRACK > Stmt_list() < RBRACK >
+	[< SUBGRAPH > [< ID >]] < LBRACKET > Stmt_list() < RBRACKET >
 }
 
 void Temo() #void: {}
@@ -205,3 +224,12 @@ void Port(): {}
 {
   < COLON > ( < ID > [< COLON > < COMPASS_PT >] | < COMPASS_PT > )
 }
+
+
+
+
+
+
+
+
+

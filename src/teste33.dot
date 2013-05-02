@@ -1,0 +1,83 @@
+digraph G {
+
+start->node0
+node0[label ="reg1=5"];
+node0->node1
+node1[label ="reg2=(abs:SI 5)"];
+node1->node2
+node2[label ="reg3=(sqrt:SI 5)"];
+node2->node3
+node3[label ="reg4=(neg:SI 5)"];
+node3->node4
+node4[label ="reg5=(and:SI 5 6)"];
+node4->node5
+node5[label ="reg1=(ior:SI 5 6)"];
+node5->node6
+node6[label ="reg2=(xor:SI 5 6)"];
+node6->node7
+node7[label ="reg3=(plus:SI 5 6)"];
+node7->node8
+node8[label ="reg4=(minus:SI 5 6)"];
+node8->node9
+node9[label ="reg1=(mult:SI 5 6)"];
+node9->node10
+node10[label ="reg7=(div:SI 5 6)"];
+node10->node11
+node11[label ="reg1=(mod:SI 5 6)"];
+node11->node12
+node12[label ="reg5=(smin:SI 5 6)"];
+node12->node13
+node13[label ="reg6=(smax:SI 5 6)"];
+node13->node14
+node14[label ="reg6=(smax:SI 5 6)"];
+node14->node15
+node15 [label = "(eq:Si (reg:SI 6) (reg:SI 6))"];
+node15->node15a [label = "true"]
+node15->node15b [label = "false"]
+node15a [label = "13"];
+node15a->node16
+node15b [label = "9"];
+node15b->node16
+node16 [label = "(ne:Si (reg:SI 4) (reg:SI 4))"];
+node16->node16a [label = "true"]
+node16->node16b [label = "false"]
+node16a [label = "14"];
+node16a->node17
+node16b [label = "3"];
+node16b->node17
+node17 [label = "(gt:Si (reg:SI 1) (reg:SI 1))"];
+node17->node17a [label = "true"]
+node17->node17b [label = "false"]
+node17a [label = "15"];
+node17a->node18
+node17b [label = "2"];
+node17b->node18
+node18 [label = "(lt:Si (reg:SI 6) (reg:SI 6))"];
+node18->node18a [label = "true"]
+node18->node18b [label = "false"]
+node18a [label = "17"];
+node18a->node19
+node18b [label = "1"];
+node18b->node19
+node19 [label = "(ge:Si (reg:SI 6) (reg:SI 6))"];
+node19->node19a [label = "true"]
+node19->node19b [label = "false"]
+node19a [label = "19"];
+node19a->node20
+node19b [label = "1"];
+node19b->node20
+node20[label ="reg6=5"];
+node20->node21
+node21[label ="reg2=(abs:SI 5)"];
+node21->node22
+node22[label ="reg3=(sqrt:SI 5)"];
+node22->node23
+node23[label ="reg4=(neg:SI 5)"];
+node23->node24
+node24[label ="reg5=(and:SI 5 6)"];
+node24->node25
+node25[label ="reg1=(ior:SI 5 6)"];
+node25->end
+
+
+}

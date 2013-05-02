@@ -1,0 +1,4 @@
+digraph ola{
+ node [style=filled,color=red];
+a -- b -> P;
+}

@@ -1,0 +1,37 @@
+digraph G {
+  1 [ label="\{outputS\} \[ILOC factorial calculation\n\n\]" ];
+  2 [ label="\{outputS\} \[Enter a number to calculate it's factorial\n\]" ];
+  3 [ label="\{inputIntToReg\} =\> \[r1\]" ];
+  4 [ label="\{loadI\} \[1\] =\> \[r_fact\]" ];
+  5 [ label="\{loadI\} \[1\] =\> \[r2\]" ];
+  6 [ label="L_start: \{cmp_LT\} \[r2\], \[r1\] =\> \[r_spill_v_r3\]" ];
+  7 [ label="\{storeAI\} \[r_spill_v_r3\] =\> \[r_spill\], \[0\]" ];
+  8 [ label="\{loadAI\} \[r_spill\], \[0\] =\> \[r_spill_v_r3\]" ];
+  9 [ label="\{cbr\} \[r_spill_v_r3\] =\> \[L_cont\], \[L_end\]" ];
+  10 [ label="L_cont: \{addI\} \[r2\], \[1\] =\> \[r2\]" ];
+  11 [ label="\{mult\} \[r_fact\], \[r2\] =\> \[r_fact\]" ];
+  12 [ label="\{jumpI\} =\> \[L_start\]" ];
+  13 [ label="L_end: \{outputS\} \[Factorial of \]" ];
+  14 [ label="\{outputR\} \[r1\]" ];
+  15 [ label="\{outputS\} \[ = \]" ];
+  16 [ label="\{outputR\} \[r_fact\]" ];
+  17 [ label="\{outputS\} \[\n\]" ];
+  1 -> 2 [ label="" ];
+  2 -> 3 [ label="" ];
+  3 -> 4 [ label="" ];
+  4 -> 5 [ label="" ];
+  5 -> 6 [ label="" ];
+  6 -> 7 [ label="" ];
+  7 -> 8 [ label="" ];
+  8 -> 9 [ label="" ];
+  9 -> 10 [ label="  L_cont" ];
+  9 -> 13 [ label="  L_end" ];
+  10 -> 11 [ label="" ];
+  11 -> 12 [ label="" ];
+  12 -> 6 [ label="  L_start" ];
+  12 -> 13 [ label="" ];
+  13 -> 14 [ label="" ];
+  14 -> 15 [ label="" ];
+  15 -> 16 [ label="" ];
+  16 -> 17 [ label="" ];
+}
