@@ -87,7 +87,7 @@ TOKEN :
  | < LF : "\n" >
 }
 
-TOKEN:
+TOKEN:    
 {
   	< EDGEOP_DIRECTED: "->" > |
   	< EDGEOP_UNDIRECTED: "--" >

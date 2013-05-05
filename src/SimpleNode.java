@@ -2,12 +2,13 @@
 /* JavaCCOptions:MULTI=true,NODE_USES_PARSER=false,VISITOR=false,TRACK_TOKENS=false,NODE_PREFIX=AST,NODE_EXTENDS=,NODE_FACTORY=,SUPPORT_CLASS_VISIBILITY_PUBLIC=true */
 public
 class SimpleNode implements Node {
-
+	
   protected Node parent;
   protected Node[] children;
   protected int id;
   protected Object value;
   protected Dot2Dot parser;
+  protected GraphAttr gta = new GraphAttr();
 
   public SimpleNode(int i) {
     id = i;
@@ -70,7 +71,24 @@ class SimpleNode implements Node {
           n.dump(prefix + " ");
         }
       }
-    }
+    }		
+    	}
+  public void dump2(String prefix) {
+  	if(children != null) {
+  		 for (int i = 0; i < children.length; ++i) {
+  	        SimpleNode n = (SimpleNode)children[i];
+  			 gta.inserirNo(n);
+  	        if (n != null) {
+  	          n.dump2(prefix + " ");
+  	        }
+  	      }
+  	    }
+      }
+  
+public void dump3(String prefix) {
+	
+			 gta.inserirNoNo();
+	       
   }
 }
 

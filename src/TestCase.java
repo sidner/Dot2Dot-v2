@@ -46,7 +46,7 @@ public class TestCase {
 		String texto5[] = new String[1]; 
 				texto5[0]="src/texto5.dot";
 			Dot2Dot.main(texto5);
-	}*/
+	}
 	
 	@Test
 	public void testesdoProf() throws ParseException, IOException, Throwable{
@@ -58,6 +58,6 @@ public class TestCase {
 			String temp= "passei "+ "teste "+ i;
 			System.out.println(temp);
 				}
-	}
+	}*/
 
 }
