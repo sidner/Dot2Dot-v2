@@ -13,65 +13,67 @@ public interface Dot2DotConstants {
   /** RegularExpression Id. */
   int GRAPH = 6;
   /** RegularExpression Id. */
-  int STRICT = 7;
+  int DIGRAPH = 7;
   /** RegularExpression Id. */
-  int ATTR_SMT = 8;
+  int STRICT = 8;
   /** RegularExpression Id. */
-  int SUBGRAPH = 9;
+  int ATTR_SMT = 9;
   /** RegularExpression Id. */
-  int COMPASS_PT = 10;
+  int SUBGRAPH = 10;
   /** RegularExpression Id. */
-  int NODE = 11;
+  int COMPASS_PT = 11;
   /** RegularExpression Id. */
-  int ID = 12;
+  int NODE = 12;
   /** RegularExpression Id. */
-  int INTEGER = 13;
+  int ID = 13;
   /** RegularExpression Id. */
-  int LF = 14;
+  int INTEGER = 14;
   /** RegularExpression Id. */
-  int EDGEOP_DIRECTED = 15;
+  int LF = 15;
   /** RegularExpression Id. */
-  int EDGEOP_UNDIRECTED = 16;
+  int EDGEOP_DIRECTED = 16;
   /** RegularExpression Id. */
-  int LBRACKET = 17;
+  int EDGEOP_UNDIRECTED = 17;
   /** RegularExpression Id. */
-  int RBRACKET = 18;
+  int LBRACKET = 18;
   /** RegularExpression Id. */
-  int LSQBRACK = 19;
+  int RBRACKET = 19;
   /** RegularExpression Id. */
-  int RSQBRACK = 20;
+  int LSQBRACK = 20;
   /** RegularExpression Id. */
-  int COLON = 21;
+  int RSQBRACK = 21;
   /** RegularExpression Id. */
-  int SEMICOLON = 22;
+  int COLON = 22;
   /** RegularExpression Id. */
-  int EQUALS = 23;
+  int SEMICOLON = 23;
   /** RegularExpression Id. */
-  int COMMA = 24;
+  int EQUALS = 24;
   /** RegularExpression Id. */
-  int DOT = 25;
+  int COMMA = 25;
   /** RegularExpression Id. */
-  int DOUBLE_BACKSLASH = 26;
+  int DOT = 26;
   /** RegularExpression Id. */
-  int SLASH = 27;
+  int DOUBLE_BACKSLASH = 27;
   /** RegularExpression Id. */
-  int MAIOR = 28;
+  int SLASH = 28;
   /** RegularExpression Id. */
-  int LESS = 29;
+  int MAIOR = 29;
   /** RegularExpression Id. */
-  int LPARENTHESIS = 30;
+  int LESS = 30;
   /** RegularExpression Id. */
-  int RPARENTHESIS = 31;
+  int LPARENTHESIS = 31;
   /** RegularExpression Id. */
-  int MINUS = 32;
+  int RPARENTHESIS = 32;
   /** RegularExpression Id. */
-  int PLUS = 33;
+  int MINUS = 33;
   /** RegularExpression Id. */
-  int PLICA = 34;
+  int PLUS = 34;
   /** RegularExpression Id. */
-  int SYMBOLS = 35;
+  int PLICA = 35;
   /** RegularExpression Id. */
-  int STRING = 36;
+  int SYMBOLS = 36;
+  /** RegularExpression Id. */
+  int STRING = 37;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -84,7 +86,8 @@ public interface Dot2DotConstants {
     "\"\\t\"",
     "\"\\u0000\"",
     "\"#\"",
-    "<GRAPH>",
+    "\"graph\"",
+    "\"digraph\"",
     "\"strict\"",
     "<ATTR_SMT>",
     "\"subgraph\"",

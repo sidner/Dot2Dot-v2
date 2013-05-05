@@ -59,10 +59,11 @@ TOKEN:
 }
 
 TOKEN [IGNORE_CASE] :
-{
-  < GRAPH : "digraph" | "graph" > |
+{	
+  <GRAPH: "graph"> |
+  < DIGRAPH : "digraph" >|
   < STRICT: "strict" > |
-  < ATTR_SMT: "graph" | "node" | "edge" > |
+  < ATTR_SMT:  "node" | "edge" > |
   < SUBGRAPH: "subgraph" >
 }
 TOKEN :
@@ -133,7 +134,7 @@ SimpleNode DotGraph(): {}
 
 void Graph( )#void: {Token id = null;}
 {
-  [< STRICT >] < GRAPH > [id = < ID >] < LBRACKET > [Stmt_list()] < RBRACKET >
+  [< STRICT >] (<GRAPH> | < DIGRAPH >) [id = < ID >] < LBRACKET > [Stmt_list()] < RBRACKET >
   
   { jjtThis.value = id.image; 
   	System.out.println("id.image" + " " + id.image);
@@ -184,7 +185,7 @@ void Edge_stmt(): {}
 
 void Attr_smt() #void: {}
 {
-  < ATTR_SMT > Attr_list()
+  (<GRAPH> |< ATTR_SMT >) Attr_list()
 }
 
 void Node_id(): {Token id;}
