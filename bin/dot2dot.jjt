@@ -38,7 +38,8 @@ public static void main(String args[]) throws ParseException,IOException {
 
         Dot2Dot dot2dot = new Dot2Dot(input);
 	SimpleNode root = dot2dot.DotGraph(); // devolve referência para o nó raiz da árvore
-	root.dump(""); // imprime no ecrã a árvore
+	root.insereNos(""); // imprime no ecrã a árvore
+	root.checkmerdas();
 	System.out.println("\n\n\n");
 	}
 }
@@ -215,10 +216,19 @@ void Temo() #void: {}
   EdgeRHS() [Attr_list()]
 }
 
-void EdgeRHS(): {Token directed = null; Token undirected = null;}
+void EdgeRHS()#void: { }
 {
-  ( (directed = < EDGEOP_DIRECTED > { jjtThis.value = directed.image; }) 
-  | (undirected = < EDGEOP_UNDIRECTED > { jjtThis.value = undirected.image; }) ) (Node_id() | Subgraph()) [EdgeRHS()]
+  ( Directed()
+  |  Undirected() ) (Node_id() | Subgraph()) [EdgeRHS()]
+}
+
+void Directed(): {Token directed = null;}
+{
+  directed = < EDGEOP_DIRECTED > { jjtThis.value = directed.image; } }
+
+void Undirected(): {Token undirected = null;}
+{
+  undirected = < EDGEOP_UNDIRECTED > { jjtThis.value = undirected.image; }
 }
 
 void Port(): {}

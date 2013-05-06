@@ -31,7 +31,8 @@ public static void main(String args[]) throws ParseException,IOException {
 
         Dot2Dot dot2dot = new Dot2Dot(input);
         SimpleNode root = dot2dot.DotGraph(); // devolve referência para o nó raiz da árvore
-        root.dump(""); // imprime no ecrã a árvore
+        root.insereNos(""); // imprime no ecrã a árvore
+        root.checkmerdas();
         System.out.println("\u005cn\u005cn\u005cn");
         }
 
@@ -454,61 +455,69 @@ void Node_stmt(): {}
   }
 
   final public void EdgeRHS() throws ParseException {
-                 /*@bgen(jjtree) EdgeRHS */
-                 ASTEdgeRHS jjtn000 = new ASTEdgeRHS(JJTEDGERHS);
-                 boolean jjtc000 = true;
-                 jjtree.openNodeScope(jjtn000);Token directed = null; Token undirected = null;
+    switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+    case EDGEOP_DIRECTED:
+      Directed();
+      break;
+    case EDGEOP_UNDIRECTED:
+      Undirected();
+      break;
+    default:
+      jj_la1[20] = jj_gen;
+      jj_consume_token(-1);
+      throw new ParseException();
+    }
+    switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+    case ID:
+      Node_id();
+      break;
+    case SUBGRAPH:
+    case LBRACKET:
+      Subgraph();
+      break;
+    default:
+      jj_la1[21] = jj_gen;
+      jj_consume_token(-1);
+      throw new ParseException();
+    }
+    switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+    case EDGEOP_DIRECTED:
+    case EDGEOP_UNDIRECTED:
+      EdgeRHS();
+      break;
+    default:
+      jj_la1[22] = jj_gen;
+      ;
+    }
+  }
+
+  final public void Directed() throws ParseException {
+                  /*@bgen(jjtree) Directed */
+                  ASTDirected jjtn000 = new ASTDirected(JJTDIRECTED);
+                  boolean jjtc000 = true;
+                  jjtree.openNodeScope(jjtn000);Token directed = null;
     try {
-      switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-      case EDGEOP_DIRECTED:
-        directed = jj_consume_token(EDGEOP_DIRECTED);
-                                      jjtn000.value = directed.image;
-        break;
-      case EDGEOP_UNDIRECTED:
-        undirected = jj_consume_token(EDGEOP_UNDIRECTED);
-                                          jjtn000.value = undirected.image;
-        break;
-      default:
-        jj_la1[20] = jj_gen;
-        jj_consume_token(-1);
-        throw new ParseException();
-      }
-      switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-      case ID:
-        Node_id();
-        break;
-      case SUBGRAPH:
-      case LBRACKET:
-        Subgraph();
-        break;
-      default:
-        jj_la1[21] = jj_gen;
-        jj_consume_token(-1);
-        throw new ParseException();
-      }
-      switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-      case EDGEOP_DIRECTED:
-      case EDGEOP_UNDIRECTED:
-        EdgeRHS();
-        break;
-      default:
-        jj_la1[22] = jj_gen;
-        ;
-      }
-    } catch (Throwable jjte000) {
+      directed = jj_consume_token(EDGEOP_DIRECTED);
+                                   jjtree.closeNodeScope(jjtn000, true);
+                                   jjtc000 = false;
+                                   jjtn000.value = directed.image;
+    } finally {
     if (jjtc000) {
-      jjtree.clearNodeScope(jjtn000);
-      jjtc000 = false;
-    } else {
-      jjtree.popNode();
+      jjtree.closeNodeScope(jjtn000, true);
     }
-    if (jjte000 instanceof RuntimeException) {
-      {if (true) throw (RuntimeException)jjte000;}
     }
-    if (jjte000 instanceof ParseException) {
-      {if (true) throw (ParseException)jjte000;}
-    }
-    {if (true) throw (Error)jjte000;}
+  }
+
+  final public void Undirected() throws ParseException {
+                    /*@bgen(jjtree) Undirected */
+                    ASTUndirected jjtn000 = new ASTUndirected(JJTUNDIRECTED);
+                    boolean jjtc000 = true;
+                    jjtree.openNodeScope(jjtn000);Token undirected = null;
+    try {
+      undirected = jj_consume_token(EDGEOP_UNDIRECTED);
+                                       jjtree.closeNodeScope(jjtn000, true);
+                                       jjtc000 = false;
+                                       jjtn000.value = undirected.image;
     } finally {
     if (jjtc000) {
       jjtree.closeNodeScope(jjtn000, true);

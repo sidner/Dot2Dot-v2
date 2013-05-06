@@ -6,7 +6,7 @@ import java.text.ParseException;
 import org.junit.Test;
 
 public class TestCase {
-/*
+
 @Test
 	public void semTypes() throws ParseException, IOException, Throwable{
 		String texto1[] = new String[1]; 
@@ -18,14 +18,14 @@ public class TestCase {
 		
 	}
 	
-	*/
+	
 	@Test
 	public void comTypes() throws ParseException, IOException, Throwable{
 		String texto2[] = new String[1]; 
 				texto2[0]="src/texto2.dot";
 			Dot2Dot.main(texto2);
 	}
-	/*
+	
 	
 	@Test
 	public void conflitosPedro() throws ParseException, IOException, Throwable{
@@ -58,6 +58,6 @@ public class TestCase {
 			String temp= "passei "+ "teste "+ i;
 			System.out.println(temp);
 				}
-	}*/
+	}
 
 }

@@ -9,8 +9,9 @@ public interface Dot2DotTreeConstants
   public int JJTNODE_ID = 5;
   public int JJTA_LIST = 6;
   public int JJTSUBGRAPH = 7;
-  public int JJTEDGERHS = 8;
-  public int JJTPORT = 9;
+  public int JJTDIRECTED = 8;
+  public int JJTUNDIRECTED = 9;
+  public int JJTPORT = 10;
 
 
   public String[] jjtNodeName = {
@@ -22,8 +23,9 @@ public interface Dot2DotTreeConstants
     "Node_id",
     "A_list",
     "Subgraph",
-    "EdgeRHS",
+    "Directed",
+    "Undirected",
     "Port",
   };
 }
-/* JavaCC - OriginalChecksum=ca4126257765589fba699cbbdfda5607 (do not edit this line) */
+/* JavaCC - OriginalChecksum=99b5e7ab1982f44a094746b2e2b21ffe (do not edit this line) */
