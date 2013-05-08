@@ -13,14 +13,28 @@ class SimpleNode implements Node {
   protected Object value;
   protected Dot2Dot parser;
   protected GraphAttr gta = new GraphAttr();
+  protected static int serial = 0;
+  protected int serialNumber = 0;
 
+  public int getSerialNumber() {
+	return serialNumber;
+}
+  
+  public int getSerial() {
+	return serial;
+  }
+  
   public SimpleNode(int i) {
     id = i;
+    serial++;
+    serialNumber = serial;
   }
 
   public SimpleNode(Dot2Dot p, int i) {
     this(i);
     parser = p;
+    serial++;
+    serialNumber = serial;
   }
 
   public void jjtOpen() {
@@ -78,17 +92,37 @@ class SimpleNode implements Node {
       }
     }		
     	}
+  
+  
   public void insereNos(String prefix) {
+	  insereNovas(prefix);
+	  insereNodeIds(prefix);
+  }
+  public void insereNovas(String prefix) {
   	if(children != null) {
   		 for (int i = 0; i < children.length; ++i) {
   	        SimpleNode n = (SimpleNode)children[i];
   			
   	        if (n != null) {
-  	        	 gta.inserirNo(n);
-  	        	n.insereNos(prefix + " ");
+  	        	 gta.inserirNova(n);
+  	        	n.insereNovas(prefix + " ");
   	        	//System.out.println(n.id +" " n.value);
   	        }
   	      }
+  	}
+  	}
+  	
+  public void insereNodeIds(String prefix) {
+	  if(children != null) {
+ 		 for (int i = 0; i < children.length; ++i) {
+   	        SimpleNode n = (SimpleNode)children[i];
+   			
+   	        if (n != null) {
+   	        	 gta.inserirNode_id(n);
+   	        	n.insereNodeIds(prefix + " ");
+   	        	//System.out.println(n.id +" " n.value);
+   	        }
+   	      }
   		
   	    }
   	
@@ -101,12 +135,13 @@ public void checkmerdas(){
 	//System.out.println("size= "+temp.size());
 	//gta.printMapa();
 	gta.printList();
+
 }
 
 @Override
 	public boolean equals(Object obj) {
 		if(obj instanceof SimpleNode) {
-		  if(((SimpleNode) obj).value.equals(value)) {
+		  if(((SimpleNode) obj).serialNumber == serialNumber) {
 			  return true;
 		  }
 		}

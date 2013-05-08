@@ -11,7 +11,6 @@ import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
 public class GraphAttr {
 	private Map<Object,SimpleNode> noIds;
 	private Map<Object,ASTNode_id> ids;
-	public Vector<String> pilinhas= new Vector<String>();
 	public static ArrayList<SimpleNode> list;
 	
 	public Map<Object, SimpleNode> getnoIds() {
@@ -27,19 +26,22 @@ public class GraphAttr {
 		list = new ArrayList<SimpleNode>();
 		
 	}
-	public void inserirNo(SimpleNode node) {
+	public void inserirNova(SimpleNode node) {
 	//System.out.println("Value: " +  node.value + " Key= " + node.id);
 		
 		
-		if(node instanceof ASTNode_id) {
-			System.out.println(" nodeid   "+ node.value);
+		if(node instanceof ASTNova) {
+			System.out.println(" nova   "+ node.value);
 			if(!checkDuplicates(node)){
-				System.out.println("NodeID adicionado");
+				System.out.println("nova adicionado");
 				list.add(node);		
 			}
 				
 		}
-		if(node instanceof ASTDirected) {
+		
+		
+		
+	/*	if(node instanceof ASTDirected) {
 			System.out.println("directed value: " + node.value);
 		}
 		if(node instanceof ASTA_list) {
@@ -76,10 +78,24 @@ public class GraphAttr {
 		}
 		if(node instanceof ASTtest) {
 			System.out.println("test value: " + node.value);
-		}
+		}*/
 				
 		
 	}
+	
+	public void inserirNode_id(SimpleNode node) {
+	//System.out.println("Value: " +  node.value + " Key= " + node.id);
+		
+		
+		if(node instanceof ASTNode_id) {
+			System.out.println(" nodeID   "+ node.value);
+			if(!checkDuplicates(node)){
+				System.out.println("NodeID adicionado");
+				list.add(node);		
+			}
+				
+		}
+		}
 	
 	
 	   
@@ -116,9 +132,22 @@ public class GraphAttr {
 	}
 	
 	public void printList() {
+		System.out.println("\n\n");
 		for(int i=0; i<list.size(); i++) {
 			System.out.println("List: " + i + " " + list.get(i));
+			
+			checkChildren(list.get(i));
+			System.out.println("Serial: " + list.get(i).value + " " + list.get(i).getSerialNumber());
 		}
+	}
+	
+	public void checkChildren(SimpleNode node) {
+		System.out.println();
+		if(node.children != null) {
+			for(int j=0; j<node.children.length ; j++) {
+				System.out.println("Children: " +((SimpleNode)node.children[j]).value);
+			}
+			}
 	}
 	
 
