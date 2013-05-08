@@ -135,6 +135,7 @@ public void checkmerdas(){
 	//System.out.println("size= "+temp.size());
 	//gta.printMapa();
 	gta.printList();
+	gta.preencheArray();
 
 }
 

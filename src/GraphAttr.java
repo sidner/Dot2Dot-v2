@@ -12,6 +12,11 @@ public class GraphAttr {
 	private Map<Object,SimpleNode> noIds;
 	private Map<Object,ASTNode_id> ids;
 	public static ArrayList<SimpleNode> list;
+	public GraphTeste gteste = new GraphTeste(); 
+	
+	public static ArrayList<SimpleNode> getList() {
+		return list;
+	}
 	
 	public Map<Object, SimpleNode> getnoIds() {
 		return noIds;
@@ -148,6 +153,11 @@ public class GraphAttr {
 				System.out.println("Children: " +((SimpleNode)node.children[j]).value);
 			}
 			}
+	}
+	
+	public void preencheArray() {
+		gteste.setNodes(list);
+		gteste.iniciarGrafico();
 	}
 	
 
