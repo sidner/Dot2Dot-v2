@@ -7,6 +7,7 @@ import org.junit.Test;
 
 public class TestCase {
 
+	/*
 @Test
 	public void semTypes() throws ParseException, IOException, Throwable{
 		String texto1[] = new String[1]; 
@@ -16,7 +17,7 @@ public class TestCase {
 			Dot2Dot.main(texto1);
 		
 		
-	}
+	}*/
 	
 	
 	@Test
@@ -26,7 +27,7 @@ public class TestCase {
 			Dot2Dot.main(texto2);
 	}
 	
-	
+/*	
 	@Test
 	public void conflitosPedro() throws ParseException, IOException, Throwable{
 		String texto3[] = new String[1]; 
@@ -58,6 +59,6 @@ public class TestCase {
 			String temp= "passei "+ "teste "+ i;
 			System.out.println(temp);
 				}
-	}
+	}*/
 
 }

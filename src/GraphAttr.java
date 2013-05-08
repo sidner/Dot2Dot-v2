@@ -12,7 +12,7 @@ public class GraphAttr {
 	private Map<Object,SimpleNode> noIds;
 	private Map<Object,ASTNode_id> ids;
 	public Vector<String> pilinhas= new Vector<String>();
-	public ArrayList<SimpleNode> list;
+	public static ArrayList<SimpleNode> list;
 	
 	public Map<Object, SimpleNode> getnoIds() {
 		return noIds;
@@ -30,12 +30,14 @@ public class GraphAttr {
 	public void inserirNo(SimpleNode node) {
 	//System.out.println("Value: " +  node.value + " Key= " + node.id);
 		
-		list.add(node);
 		
 		if(node instanceof ASTNode_id) {
-			pilinhas.add(((ASTNode_id)node).value.toString());
-			//ids.put(node.value, (ASTNode_id) node);
 			System.out.println(" nodeid   "+ node.value);
+			if(!checkDuplicates(node)){
+				System.out.println("NodeID adicionado");
+				list.add(node);		
+			}
+				
 		}
 		if(node instanceof ASTDirected) {
 			System.out.println("directed value: " + node.value);
@@ -59,8 +61,9 @@ public class GraphAttr {
 			System.out.println("graph value: " + node.value);
 		}
 		if(node instanceof ASTNova) {
-			pilinhas.add(((ASTNova)node).value.toString());
 			System.out.println("nova value: " + node.value);
+			if(!checkDuplicates(node))
+				list.add(node);	
 		}
 		if(node instanceof ASTPort) {
 			System.out.println("port value: " + node.value);
@@ -74,16 +77,7 @@ public class GraphAttr {
 		if(node instanceof ASTtest) {
 			System.out.println("test value: " + node.value);
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+				
 		
 	}
 	
@@ -98,10 +92,10 @@ public class GraphAttr {
 			
 		}
 		
-		for(int i=0; i<pilinhas.size();i++) {
+	/*	for(int i=0; i<pilinhas.size();i++) {
 			System.out.println(pilinhas.get(i));
 		}
-		
+		*/
 		System.out.println( "SIZE= "+list.size());
 	}
 	
@@ -111,6 +105,21 @@ public class GraphAttr {
 		n.dump("");
 	}
 	
+	public boolean checkDuplicates(SimpleNode node) {
+		for(int i=0; i<list.size(); i++) {
+			if(list.get(i).equals(node)){
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	public void printList() {
+		for(int i=0; i<list.size(); i++) {
+			System.out.println("List: " + i + " " + list.get(i));
+		}
+	}
 	
 
 }

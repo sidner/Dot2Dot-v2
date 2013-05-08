@@ -99,8 +99,20 @@ public void checkmerdas(){
 	
 	//Map<Object,SimpleNode> temp= gta.getnoIds();
 	//System.out.println("size= "+temp.size());
-	gta.printMapa();
+	//gta.printMapa();
+	gta.printList();
 }
+
+@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof SimpleNode) {
+		  if(((SimpleNode) obj).value.equals(value)) {
+			  return true;
+		  }
+		}
+			return false;
+	}
+
 }
 
 
