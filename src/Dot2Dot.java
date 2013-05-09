@@ -30,8 +30,8 @@ public static void main(String args[]) throws ParseException,IOException {
         InputStream input = new ByteArrayInputStream(temp.getBytes());
 
         Dot2Dot dot2dot = new Dot2Dot(input);
-        SimpleNode root = dot2dot.DotGraph(); // devolve referência para o nó raiz da árvore
-        root.insereNos(""); // imprime no ecrã a árvore
+        SimpleNode root = dot2dot.DotGraph(); // devolve referï¿½ncia para o nï¿½ raiz da ï¿½rvore
+        root.insereNos(""); // imprime no ecrï¿½ a ï¿½rvore
         root.checkmerdas();
         System.out.println("\u005cn\u005cn\u005cn");
         }

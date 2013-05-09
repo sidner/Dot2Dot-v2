@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 
 import org.jgraph.JGraph;
 import org.jgraph.graph.DefaultEdge;
+import org.jgrapht.Graph;
 import org.jgrapht.ListenableGraph;
 import org.jgrapht.ext.JGraphModelAdapter;
 import org.jgrapht.graph.ListenableDirectedGraph;
@@ -13,14 +14,14 @@ import org.jgrapht.graph.ListenableDirectedGraph;
 public class GraphTeste {
 	
 	ArrayList<SimpleNode> nodes;
-	ListenableGraph graph;
+	ListenableGraph<Object, ?> graph;
 	// create a visualization using JGraph, via the adapter
-	JGraphModelAdapter m_jgAdapter; 
+	JGraphModelAdapter<Object, ?> m_jgAdapter; 
 	JGraph jgraph;
 
 	public GraphTeste() {	
-		graph = new ListenableDirectedGraph( DefaultEdge.class );
-		m_jgAdapter = new JGraphModelAdapter(graph);
+		graph = new ListenableDirectedGraph<Object, Object>( DefaultEdge.class );
+		m_jgAdapter = new JGraphModelAdapter<Object, Object>((Graph<Object, Object>) graph);
 		nodes = new ArrayList<SimpleNode>();
 		jgraph = new JGraph(m_jgAdapter);
 	}

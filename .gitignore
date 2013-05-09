@@ -5,6 +5,12 @@
 #eclipse metada - polutes commits
 .metadata
 
+#eclispe classpath
+.classpath
+
+#eclipse preferences
+.settings/sf.eclipse.javacc.prefs
+
 #EAP temps
 *.ldb
 
