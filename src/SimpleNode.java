@@ -129,13 +129,13 @@ class SimpleNode implements Node {
 
       }
 
-public void checkmerdas(){
+public void checkmerdas(String nome){
 	
 	//Map<Object,SimpleNode> temp= gta.getnoIds();
 	//System.out.println("size= "+temp.size());
 	//gta.printMapa();
 	gta.printList();
-	gta.preencheArray();
+	gta.preencheArray(nome);
 
 }
 

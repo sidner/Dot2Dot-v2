@@ -17,7 +17,7 @@ public class TestCase {
 			Dot2Dot.main(texto1);
 		
 		
-	}*/
+	}
 	
 	
 	@Test
@@ -48,7 +48,7 @@ public class TestCase {
 				texto5[0]="src/texto5.dot";
 			Dot2Dot.main(texto5);
 	}
-	
+	*/
 	@Test
 	public void testesdoProf() throws ParseException, IOException, Throwable{
 		String texto6[] = new String[1]; 
@@ -59,6 +59,13 @@ public class TestCase {
 			String temp= "passei "+ "teste "+ i;
 			System.out.println(temp);
 				}
-	}*/
+	}
 
+	/*
+	@Test
+	public void maisDificil() throws ParseException, IOException, Throwable{
+		String texto5[] = new String[1]; 
+				texto5[0]="src/teste16.dot";
+			Dot2Dot.main(texto5);
+	}*/
 }

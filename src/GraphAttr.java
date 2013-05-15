@@ -155,9 +155,9 @@ public class GraphAttr {
 			}
 	}
 	
-	public void preencheArray() {
+	public void preencheArray(String nome) {
 		gteste.setNodes(list);
-		gteste.iniciarGrafico();
+		gteste.iniciarGrafico(nome);
 	}
 	
 

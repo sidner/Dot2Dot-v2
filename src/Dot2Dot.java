@@ -32,7 +32,7 @@ public static void main(String args[]) throws ParseException,IOException {
         Dot2Dot dot2dot = new Dot2Dot(input);
         SimpleNode root = dot2dot.DotGraph(); // devolve refer�ncia para o n� raiz da �rvore
         root.insereNos(""); // imprime no ecr� a �rvore
-        root.checkmerdas();
+        root.checkmerdas(args[0]);
         System.out.println("\u005cn\u005cn\u005cn");
         }
 

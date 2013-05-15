@@ -37,9 +37,9 @@ public static void main(String args[]) throws ParseException,IOException {
         InputStream input = new ByteArrayInputStream(temp.getBytes());
 
         Dot2Dot dot2dot = new Dot2Dot(input);
-	SimpleNode root = dot2dot.DotGraph(); // devolve referência para o nó raiz da árvore
-	root.insereNos(""); // imprime no ecrã a árvore
-	root.checkmerdas();
+	SimpleNode root = dot2dot.DotGraph(); // devolve referï¿½ncia para o nï¿½ raiz da ï¿½rvore
+	root.insereNos(""); // imprime no ecrï¿½ a ï¿½rvore
+	root.checkmerdas(args[0]);
 	System.out.println("\n\n\n");
 	}
 }
@@ -52,7 +52,7 @@ SKIP :
   " " | "\r" | "\t" |"\0"
 }
 
-// definição dos tokens (símbolos terminais)
+// definiï¿½ï¿½o dos tokens (sï¿½mbolos terminais)
 TOKEN:
 {
   //What comes after this token is ignored if it is preceded by a <LF>
@@ -130,7 +130,7 @@ TOKEN :
 }
 SimpleNode DotGraph(): {} 
 {
-	Graph() {return jjtThis;} // código Java entre chavetas
+	Graph() {return jjtThis;} // cï¿½digo Java entre chavetas
 }
 
 void Graph( )#void: {Token id = null;}

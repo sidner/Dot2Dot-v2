@@ -1,10 +1,16 @@
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import org.jgraph.JGraph;
 import org.jgraph.graph.DefaultEdge;
+import org.jgraph.layout.JGraphLayoutAlgorithm;
+import org.jgraph.layout.SugiyamaLayoutAlgorithm;
 import org.jgrapht.Graph;
 import org.jgrapht.ListenableGraph;
 import org.jgrapht.ext.JGraphModelAdapter;
@@ -13,14 +19,14 @@ import org.jgrapht.graph.ListenableDirectedGraph;
 public class GraphTeste {
 
 	ArrayList<SimpleNode> nodes;
-	ListenableGraph<Object, ?> graph;
+	ListenableGraph graph;
 	// create a visualization using JGraph, via the adapter
-	JGraphModelAdapter<Object, ?> m_jgAdapter;
+	JGraphModelAdapter m_jgAdapter;
 	JGraph jgraph;
 
 	public GraphTeste() {
-		graph = new ListenableDirectedGraph<Object, Object>(DefaultEdge.class);
-		m_jgAdapter = new JGraphModelAdapter<Object, Object>((Graph<Object, Object>) graph);
+		graph = new ListenableDirectedGraph(DefaultEdge.class);
+		m_jgAdapter = new JGraphModelAdapter((Graph) graph);
 		nodes = new ArrayList<SimpleNode>();
 		jgraph = new JGraph(m_jgAdapter);
 	}
@@ -35,8 +41,8 @@ public class GraphTeste {
 		for (int i = 0; i < nodes.size(); i++) {
 			SimpleNode temp = nodes.get(i);
 			System.out.println("Comecei " + temp.value);
-			
-			if(temp.value == "label")
+
+			if (temp.value == "label")
 				System.out.println(0);
 			graph.addVertex(temp.value);
 
@@ -81,23 +87,45 @@ public class GraphTeste {
 
 	}
 
-	public void iniciarGrafico() {
+	void layout(ListenableDirectedGraph graphModel, JGraphModelAdapter graphAdapter, JGraph graph) {
+		List roots = new ArrayList();
+		Iterator vertexIter = graphModel.vertexSet().iterator();
+		while (vertexIter.hasNext()) {
+			Object vertex = vertexIter.next();
+			if (graphModel.inDegreeOf(vertex) == 0) {
+				roots.add(graphAdapter.getVertexCell(vertex));
+			}
+		}
+
+		JGraphLayoutAlgorithm layout = new SugiyamaLayoutAlgorithm();
+		JGraphLayoutAlgorithm.applyLayout(graph, roots.toArray(), layout);
+	}
+
+	public void iniciarGrafico(String nome) {
 
 		addNodes();
 		jgraph.setVisible(true);
 
 		// Frame where graph is drawn
-		JFrame frame = new JFrame();
-		frame.setSize(300, 300);
-		frame.add(jgraph);
+		JFrame frame = new JFrame(nome);
+		JPanel panel=new JPanel();
+		panel.add(jgraph);
+		JScrollPane scrollBar = new JScrollPane(panel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		jgraph.setSize(800, 800);
+		//scrollBar.add(jgraph);
+		frame.setSize(600, 600);
+		frame.add(scrollBar);
+		//frame.add(jgraph);
 		frame.setBackground(Color.BLACK);
-		frame.setVisible(true);
-		try {
-			Thread.sleep(200000);
-		} catch (InterruptedException e) {
+		frame.setVisible(false);
+		//try {
+			layout((ListenableDirectedGraph) graph, m_jgAdapter, jgraph);
+			//Thread.sleep(5000);
+		//} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		//	e.printStackTrace();
+		//	System.exit(-1);
+		//}
 
 	}
 
