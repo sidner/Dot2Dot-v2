@@ -32,7 +32,7 @@ public static void main(String args[]) throws ParseException,IOException {
         Dot2Dot dot2dot = new Dot2Dot(input);
         SimpleNode root = dot2dot.DotGraph(); // devolve refer�ncia para o n� raiz da �rvore
         root.insereNos(""); // imprime no ecr� a �rvore
-        root.checkmerdas(args[0]);
+        root.drawGraph(args[0]);
         System.out.println("\u005cn\u005cn\u005cn");
         }
 
@@ -330,7 +330,7 @@ void Node_stmt(): {}
     jj_consume_token(LSQBRACK);
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case ID:
-      A_list();
+      Attr_type();
       break;
     default:
       jj_la1[13] = jj_gen;
@@ -347,13 +347,42 @@ void Node_stmt(): {}
     }
   }
 
+  final public void Attr_type() throws ParseException {
+                  /*@bgen(jjtree) Attr_type */
+                  ASTAttr_type jjtn000 = new ASTAttr_type(JJTATTR_TYPE);
+                  boolean jjtc000 = true;
+                  jjtree.openNodeScope(jjtn000);Token attr=null;
+    try {
+      attr = jj_consume_token(ID);
+                       jjtn000.value = attr.image;
+      A_list();
+    } catch (Throwable jjte000) {
+          if (jjtc000) {
+            jjtree.clearNodeScope(jjtn000);
+            jjtc000 = false;
+          } else {
+            jjtree.popNode();
+          }
+          if (jjte000 instanceof RuntimeException) {
+            {if (true) throw (RuntimeException)jjte000;}
+          }
+          if (jjte000 instanceof ParseException) {
+            {if (true) throw (ParseException)jjte000;}
+          }
+          {if (true) throw (Error)jjte000;}
+    } finally {
+          if (jjtc000) {
+            jjtree.closeNodeScope(jjtn000, true);
+          }
+    }
+  }
+
   final public void A_list() throws ParseException {
                 /*@bgen(jjtree) A_list */
                 ASTA_list jjtn000 = new ASTA_list(JJTA_LIST);
                 boolean jjtc000 = true;
                 jjtree.openNodeScope(jjtn000);Token attr = null;
     try {
-      jj_consume_token(ID);
       jj_consume_token(EQUALS);
       attr = jj_consume_token(ID);
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -366,7 +395,7 @@ void Node_stmt(): {}
       }
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
       case ID:
-        A_list();
+        Attr_type();
         break;
       default:
         jj_la1[16] = jj_gen;

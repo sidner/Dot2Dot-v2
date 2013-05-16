@@ -7,11 +7,12 @@ public interface Dot2DotTreeConstants
   public int JJTNOVA = 3;
   public int JJTEDGE_STMT = 4;
   public int JJTNODE_ID = 5;
-  public int JJTA_LIST = 6;
-  public int JJTSUBGRAPH = 7;
-  public int JJTDIRECTED = 8;
-  public int JJTUNDIRECTED = 9;
-  public int JJTPORT = 10;
+  public int JJTATTR_TYPE = 6;
+  public int JJTA_LIST = 7;
+  public int JJTSUBGRAPH = 8;
+  public int JJTDIRECTED = 9;
+  public int JJTUNDIRECTED = 10;
+  public int JJTPORT = 11;
 
 
   public String[] jjtNodeName = {
@@ -21,6 +22,7 @@ public interface Dot2DotTreeConstants
     "Nova",
     "Edge_stmt",
     "Node_id",
+    "Attr_type",
     "A_list",
     "Subgraph",
     "Directed",
@@ -28,4 +30,4 @@ public interface Dot2DotTreeConstants
     "Port",
   };
 }
-/* JavaCC - OriginalChecksum=0272be5e41464c11bb09ac9c3c32a145 (do not edit this line) */
+/* JavaCC - OriginalChecksum=4d4405bf9d5b58923e0b924e400ad6b0 (do not edit this line) */

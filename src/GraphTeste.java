@@ -117,15 +117,15 @@ public class GraphTeste {
 		frame.add(scrollBar);
 		//frame.add(jgraph);
 		frame.setBackground(Color.BLACK);
-		frame.setVisible(false);
-		//try {
+		frame.setVisible(true);
+		try {
 			layout((ListenableDirectedGraph) graph, m_jgAdapter, jgraph);
-			//Thread.sleep(5000);
-		//} catch (InterruptedException e) {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
-		//	e.printStackTrace();
-		//	System.exit(-1);
-		//}
+			e.printStackTrace();
+			System.exit(-1);
+		}
 
 	}
 

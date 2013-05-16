@@ -39,7 +39,7 @@ public static void main(String args[]) throws ParseException,IOException {
         Dot2Dot dot2dot = new Dot2Dot(input);
 	SimpleNode root = dot2dot.DotGraph(); // devolve refer�ncia para o n� raiz da �rvore
 	root.insereNos(""); // imprime no ecr� a �rvore
-	root.checkmerdas(args[0]);
+	root.drawGraph(args[0]);
 	System.out.println("\n\n\n");
 	}
 }
@@ -197,12 +197,18 @@ void Node_id(): {Token id;}
 
 void Attr_list() #void: {}
 {
-  < LSQBRACK > [A_list()] < RSQBRACK > [Attr_list()] 
+  < LSQBRACK > [Attr_type()] < RSQBRACK > [Attr_list()] 
+}
+
+void Attr_type():{Token attr=null;}
+{
+	attr = < ID > {jjtThis.value = attr.image; }
+	A_list()
 }
 
 void A_list(): {Token attr = null;}
 {
-	< ID >  < EQUALS > attr = < ID > [< COMMA >] [A_list()]	
+	< EQUALS > attr = < ID > [< COMMA >] [Attr_type()]	
 	 { jjtThis.value = attr.image; }
 }
 
