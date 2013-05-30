@@ -10,6 +10,7 @@ public class SimpleNode implements Node {
 	protected Object value;
 	protected Dot2Dot parser;
 	protected GraphAttr gta = new GraphAttr();
+	protected GraphToDot gtd = new GraphToDot("graph.dot");
 	protected static int serial = 0;
 	protected int serialNumber = 0;
 	protected ArrayList<EntryMod> atributos = new ArrayList<EntryMod>(); 
@@ -110,6 +111,7 @@ public class SimpleNode implements Node {
 	}
 
 	public void insereNos(String prefix) {
+		insereGraph(prefix);
 		insereNovas(prefix);
 		insereNodeIds(prefix);
 	}
@@ -140,10 +142,25 @@ public class SimpleNode implements Node {
 			}
 		}
 	}
+	
+	public void insereGraph(String prefix) {
+		if (children != null) {
+			for (int i = 0; i < children.length; ++i) {
+				SimpleNode n = (SimpleNode) children[i];
+
+				if (n != null) {
+					gta.inserirGraph(n);
+					n.insereNodeIds(prefix + " ");
+				}
+			}
+		}
+	}
+
 
 	public void drawGraph(String nome) {
-		 gta.printList();
+		gta.printList();
 		gta.preencheArray(nome);
+		gtd.writeFile();
 
 	}
 

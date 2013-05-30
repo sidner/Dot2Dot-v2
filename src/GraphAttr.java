@@ -11,6 +11,8 @@ public class GraphAttr {
 	private Map<Object, SimpleNode> noIds;
 	private Map<Object, ASTNode_id> ids;
 	public static ArrayList<SimpleNode> list;
+	public static SimpleNode graph;
+	public static SimpleNode graphName;
 	public GraphTeste gteste = new GraphTeste();
 
 	public static ArrayList<SimpleNode> getList() {
@@ -27,6 +29,21 @@ public class GraphAttr {
 		ids = new HashMap<Object, ASTNode_id>();
 		list = new ArrayList<SimpleNode>();
 
+	}
+	
+	public void inserirGraph(SimpleNode node) {
+		if(node instanceof ASTGraph) {
+			if(!checkDuplicates(node)){
+				System.out.println("GRAPH: " + node.value);
+				graph = node;
+			}
+		}
+		
+		if(node instanceof ASTGraphID) {
+				System.out.println("GRAPH ID: " + node.value);
+				graphName = node;
+		}
+		
 	}
 
 	public void inserirNova(SimpleNode node) {
@@ -59,18 +76,24 @@ public class GraphAttr {
 		}
 		/*
 		 * if(node instanceof ASTDotGraph) {
-		 * System.out.println("dotgraph value: " + node.value); } if(node
+		 * System.out.println("dotgraph value: " + node.value); } 
+		 * if(node
 		 * instanceof ASTUndirected) { System.out.println("undirected: " +
-		 * node.value); } if(node instanceof ASTEdgeRHS) {
+		 * node.value); } 
+		 * if(node instanceof ASTEdgeRHS) {
 		 * System.out.println("edgerhs value: " + node.value); } if(node
 		 * instanceof ASTEdge_stmt) { System.out.println("edgestmt value: " +
-		 * node.value); } if(node instanceof ASTGraph) {
+		 * node.value); } 
+		 * if(node instanceof ASTGraph) {
 		 * System.out.println("graph value: " + node.value); } if(node
-		 * instanceof ASTNova) { System.out.println("nova value: " +
+		 * instanceof AS
+		 * TNova) { System.out.println("nova value: " +
 		 * node.value); if(!checkDuplicates(node)) list.add(node); } if(node
 		 * instanceof ASTPort) { System.out.println("port value: " +
-		 * node.value); } if(node instanceof ASTSubgraph) {
-		 * System.out.println("sub value: " + node.value); } if(node instanceof
+		 * node.value); } 
+		 * if(node instanceof ASTSubgraph) {
+		 * System.out.println("sub value: " + node.value); } 
+		 * if(node instanceof
 		 * ASTTemo) { System.out.println("temo value: " + node.value); } if(node
 		 * instanceof ASTtest) { System.out.println("test value: " +
 		 * node.value); }

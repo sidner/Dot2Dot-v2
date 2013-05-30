@@ -5,6 +5,7 @@
    between nodes. */
 
 public
+@SuppressWarnings("all")
 interface Node {
 
   /** This method is called after the node has been made the current
@@ -31,4 +32,4 @@ interface Node {
   /** Return the number of children the node has. */
   public int jjtGetNumChildren();
 }
-/* JavaCC - OriginalChecksum=124197fbf8d9be82b6049afcbf66c1fb (do not edit this line) */
+/* JavaCC - OriginalChecksum=470289d5a695740ef6aae9deb07ff453 (do not edit this line) */

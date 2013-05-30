@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class TestCase {
 
-	/*
+/*	
 @Test
 	public void semTypes() throws ParseException, IOException, Throwable{
 		String texto1[] = new String[1]; 
@@ -17,17 +17,17 @@ public class TestCase {
 			Dot2Dot.main(texto1);
 		
 		
-	}
+	}*/
 	
 	
-	@Test
+/*	@Test
 	public void comTypes() throws ParseException, IOException, Throwable{
 		String texto2[] = new String[1]; 
 				texto2[0]="src/texto2.dot";
 			Dot2Dot.main(texto2);
-	}
+	}*/
 	
-/*	
+/*
 	@Test
 	public void conflitosPedro() throws ParseException, IOException, Throwable{
 		String texto3[] = new String[1]; 
@@ -47,7 +47,7 @@ public class TestCase {
 		String texto5[] = new String[1]; 
 				texto5[0]="src/texto5.dot";
 			Dot2Dot.main(texto5);
-	}
+	}*/
 	
 	@Test
 	public void testesdoProf() throws ParseException, IOException, Throwable{
@@ -60,12 +60,12 @@ public class TestCase {
 			System.out.println(temp);
 				}
 	}
-*/
-	
+
+/*	
 	@Test
 	public void maisDificil() throws ParseException, IOException, Throwable{
 		String texto5[] = new String[1]; 
 				texto5[0]="src/teste0.dot";
 			Dot2Dot.main(texto5);
-	}
+	}*/
 }
