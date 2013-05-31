@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class TestCase {
 
-/*	
+
 @Test
 	public void semTypes() throws ParseException, IOException, Throwable{
 		String texto1[] = new String[1]; 
@@ -17,7 +17,7 @@ public class TestCase {
 			Dot2Dot.main(texto1);
 		
 		
-	}*/
+	}
 	
 	
 /*	@Test
@@ -47,7 +47,7 @@ public class TestCase {
 		String texto5[] = new String[1]; 
 				texto5[0]="src/texto5.dot";
 			Dot2Dot.main(texto5);
-	}*/
+	}
 	
 	@Test
 	public void testesdoProf() throws ParseException, IOException, Throwable{
