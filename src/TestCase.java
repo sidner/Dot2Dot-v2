@@ -26,8 +26,7 @@ public class TestCase {
 				texto2[0]="src/texto2.dot";
 			Dot2Dot.main(texto2);
 	}*/
-	
-/*
+
 	@Test
 	public void conflitosPedro() throws ParseException, IOException, Throwable{
 		String texto3[] = new String[1]; 
@@ -42,17 +41,17 @@ public class TestCase {
 			Dot2Dot.main(texto4);
 	}
 	
-	@Test
+/*	@Test
 	public void maisDificil() throws ParseException, IOException, Throwable{
 		String texto5[] = new String[1]; 
 				texto5[0]="src/texto5.dot";
 			Dot2Dot.main(texto5);
-	}
+	}*/
 	
 	@Test
 	public void testesdoProf() throws ParseException, IOException, Throwable{
 		String texto6[] = new String[1]; 
-				for(int i=0;i<50;i++)
+				for(int i=0;i<9;i++)
 				{	texto6[0]= "src/teste"+i+".dot";
 				
 			Dot2Dot.main(texto6);
@@ -61,11 +60,11 @@ public class TestCase {
 				}
 	}
 
-/*	
+	
 	@Test
-	public void maisDificil() throws ParseException, IOException, Throwable{
+	public void maisDificil2() throws ParseException, IOException, Throwable{
 		String texto5[] = new String[1]; 
 				texto5[0]="src/teste0.dot";
 			Dot2Dot.main(texto5);
-	}*/
+	}
 }

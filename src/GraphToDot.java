@@ -31,6 +31,8 @@ public class GraphToDot extends GraphAttr {
 		System.out.println("vou escrever");	
 
 		file.println(graph + " " + graphName + " ");
+		file.println("{");
+		
 		for (int i = 0; i < list.size(); i++) {
 			file.print(list.get(i).value.toString() + " ");
 			writeChild(i);
@@ -41,8 +43,9 @@ public class GraphToDot extends GraphAttr {
 			}
 
 		}
+		
 		file.println();
-		file.println("---------------------------------------------------------");
+		file.println("}");
 		file.println();
 		file.close();
 	}
