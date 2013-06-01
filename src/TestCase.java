@@ -41,14 +41,14 @@ public class TestCase {
 				texto4[0]="src/texto4.dot";
 			Dot2Dot.main(texto4);
 	}
-	
+	*/
 	@Test
 	public void maisDificil() throws ParseException, IOException, Throwable{
 		String texto5[] = new String[1]; 
 				texto5[0]="src/texto5.dot";
 			Dot2Dot.main(texto5);
 	}
-	
+	/*
 	@Test
 	public void testesdoProf() throws ParseException, IOException, Throwable{
 		String texto6[] = new String[1]; 
@@ -63,7 +63,7 @@ public class TestCase {
 
 /*	
 	@Test
-	public void maisDificil() throws ParseException, IOException, Throwable{
+	public void maisDificil2() throws ParseException, IOException, Throwable{
 		String texto5[] = new String[1]; 
 				texto5[0]="src/teste0.dot";
 			Dot2Dot.main(texto5);

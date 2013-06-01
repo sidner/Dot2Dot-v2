@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 
 public class EntryMod {
-
 	private String key;
 	private ArrayList<String> valores = new ArrayList<String>();
 	

@@ -6,6 +6,7 @@ import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.WindowConstants;
 
 import org.jgraph.JGraph;
 import org.jgraph.graph.DefaultEdge;
@@ -115,18 +116,11 @@ public class GraphTeste {
 		//scrollBar.add(jgraph);
 		frame.setSize(600, 600);
 		frame.add(scrollBar);
-		//frame.add(jgraph);
 		frame.setBackground(Color.BLACK);
 		frame.setVisible(true);
-		try {
-			layout((ListenableDirectedGraph) graph, m_jgAdapter, jgraph);
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.exit(-1);
-		}
-
+		layout((ListenableDirectedGraph) graph, m_jgAdapter, jgraph);
+		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		//while(true){}
 	}
 
 }

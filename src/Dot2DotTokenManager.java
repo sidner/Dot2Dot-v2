@@ -2,7 +2,6 @@
 import java.io.*;
 
 /** Token Manager. */
-@SuppressWarnings("all")
 public class Dot2DotTokenManager implements Dot2DotConstants
 {
 

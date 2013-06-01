@@ -38,6 +38,7 @@ public static void main(String args[]) throws ParseException,IOException {
 
         Dot2Dot dot2dot = new Dot2Dot(input);
 	SimpleNode root = dot2dot.DotGraph(); // devolve refer�ncia para o n� raiz da �rvore
+	//root.dump("");
 	root.insereNos(""); // imprime no ecr� a �rvore
 	root.drawGraph(args[0]);
 	System.out.println("\n\n\n");
@@ -67,7 +68,7 @@ TOKEN [IGNORE_CASE] :
   < ATTR_SMT:  "node" | "edge" > |
   < SUBGRAPH: "subgraph" >
 }
-TOKEN :
+TOKEN [IGNORE_CASE]:
 {
   < COMPASS_PT: "n" | "ne" | "e" | "se" | "s" | "sw" | "w" | "nw" | "c" | "_" >
 }
@@ -247,11 +248,15 @@ void Undirected(): {Token undirected = null;}
   undirected = < EDGEOP_UNDIRECTED > { jjtThis.value = undirected.image; }
 }
 
-void Port(): {}
+/*void Port(): {}
 {
   < COLON > ( < ID > [< COLON > < COMPASS_PT >] | < COMPASS_PT > )
-}
+}*/
 
+void Port(): {}
+{
+  < COLON > < COMPASS_PT >
+}
 
 
 

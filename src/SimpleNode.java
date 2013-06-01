@@ -13,7 +13,8 @@ public class SimpleNode implements Node {
 	protected GraphToDot gtd = new GraphToDot("graph.dot");
 	protected static int serial = 0;
 	protected int serialNumber = 0;
-	protected ArrayList<EntryMod> atributos = new ArrayList<EntryMod>(); 
+	protected ArrayList<EntryMod> atributos = new ArrayList<EntryMod>();
+	protected String port;
 
 	public int getSerialNumber() {
 		return serialNumber;

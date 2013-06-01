@@ -62,17 +62,19 @@ public class GraphAttr {
 		if (node instanceof ASTAttr_type) {
 			System.out.println("attribute type: " + node.value);
 			EntryMod entrada = new EntryMod(node.value.toString(), new ArrayList<String>());
-			list.get(list.size()-1).atributos.add(entrada);
+			list.get(list.size() - 1).atributos.add(entrada);
 		}
 		if (node instanceof ASTA_list) {
 			System.out.println("attribute value: " + node.value);
-			EntryMod entrada = list.get(list.size()-1).atributos.get(list.get(list.size()-1).atributos.size() - 1);
-			if(entrada != null){
+			EntryMod entrada = list.get(list.size() - 1).atributos.get(list.get(list.size() - 1).atributos.size() - 1);
+			if (entrada != null) {
 				entrada.getValores().add(node.value.toString());
-			}
-			else{
+			} else {
 				System.out.println("Null " + node.value);
 			}
+		}
+		if (node instanceof ASTPort) {
+			list.get(list.size()-1).port = node.value.toString();
 		}
 		/*
 		 * if(node instanceof ASTDotGraph) {
