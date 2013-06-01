@@ -30,23 +30,27 @@ public class GraphAttr {
 		list = new ArrayList<SimpleNode>();
 
 	}
-	
+
 	public void inserirGraph(SimpleNode node) {
+		
+		
 		if(node instanceof ASTGraph) {
 			if(!checkDuplicates(node)){
 				System.out.println("GRAPH: " + node.value);
 				graph = node;
 			}
 		}
-		
-		if(node instanceof ASTGraphID) {
-				System.out.println("GRAPH ID: " + node.value);
-				graphName = node;
-		}
-		
+
 	}
 
 	public void inserirNova(SimpleNode node) {
+		
+		
+		if(node instanceof ASTGraphID) {
+			System.out.println("GRAPH ID: " + node.value);
+			graphName = node;
+		}
+		
 		if (node instanceof ASTNova) {
 			if (!checkDuplicates(node)) {
 				System.out.println("nova value: " + node.value);
