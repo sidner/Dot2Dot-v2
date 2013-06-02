@@ -10,5 +10,6 @@ class ASTAttr_smt extends SimpleNode {
     super(p, id);
   }
 
+  public String toString() { return value.toString(); }
 }
 /* JavaCC - OriginalChecksum=3feddaa7a63f98084d6aae32572200e6 (do not edit this line) */

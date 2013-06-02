@@ -14,7 +14,8 @@ public class GraphAttr {
 	public static SimpleNode graph;
 	public static SimpleNode graphName;
 	public GraphTeste gteste = new GraphTeste();
-
+	public static ArrayList<SimpleNode> list_gerais;
+	
 	public static ArrayList<SimpleNode> getList() {
 		return list;
 	}
@@ -28,7 +29,7 @@ public class GraphAttr {
 		noIds = new HashMap<Object, SimpleNode>();
 		ids = new HashMap<Object, ASTNode_id>();
 		list = new ArrayList<SimpleNode>();
-
+		list_gerais = new ArrayList<SimpleNode>();
 	}
 
 	public void inserirGraph(SimpleNode node) {
@@ -43,12 +44,17 @@ public class GraphAttr {
 
 	}
 
+	
 	public void inserirNova(SimpleNode node) {
-		
 		
 		if(node instanceof ASTGraphID) {
 			System.out.println("GRAPH ID: " + node.value);
 			graphName = node;
+		}
+	
+		if(node instanceof ASTAttr_smt){
+			System.out.println("General element: " + node.value);
+			list_gerais.add(node);
 		}
 		
 		if (node instanceof ASTNova) {
@@ -66,11 +72,21 @@ public class GraphAttr {
 		if (node instanceof ASTAttr_type) {
 			System.out.println("attribute type: " + node.value);
 			EntryMod entrada = new EntryMod(node.value.toString(), new ArrayList<String>());
-			list.get(list.size() - 1).atributos.add(entrada);
+			if(node.getParent() instanceof ASTNova)
+				list.get(list.size() - 1).atributos.add(entrada);
+			else if(node.getParent() instanceof ASTAttr_smt)
+				list_gerais.get(list_gerais.size() - 1).atributos.add(entrada);
 		}
 		if (node instanceof ASTA_list) {
 			System.out.println("attribute value: " + node.value);
-			EntryMod entrada = list.get(list.size() - 1).atributos.get(list.get(list.size() - 1).atributos.size() - 1);
+			
+			EntryMod entrada = null;
+			
+			if(node.getParent() instanceof ASTNova)
+				entrada = list.get(list.size() - 1).atributos.get(list.get(list.size() - 1).atributos.size() - 1);
+			else if(node.getParent() instanceof ASTAttr_smt)
+				entrada = list_gerais.get(list_gerais.size() - 1).atributos.get(list_gerais.get(list_gerais.size() - 1).atributos.size() - 1);
+			
 			if (entrada != null) {
 				entrada.getValores().add(node.value.toString());
 			} else {

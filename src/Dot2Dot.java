@@ -31,6 +31,7 @@ public static void main(String args[]) throws ParseException,IOException {
 
         Dot2Dot dot2dot = new Dot2Dot(input);
         SimpleNode root = dot2dot.DotGraph(); // devolve refer�ncia para o n� raiz da �rvore
+        //root.dump("");
         root.insereNos(""); // imprime no ecr� a �rvore
         root.drawGraph(args[0]);
         System.out.println("\u005cn\u005cn\u005cn");
@@ -304,19 +305,44 @@ void Node_stmt(): {}
   }
 
   final public void Attr_smt() throws ParseException {
-    switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-    case GRAPH:
-      jj_consume_token(GRAPH);
-      break;
-    case ATTR_SMT:
-      jj_consume_token(ATTR_SMT);
-      break;
-    default:
-      jj_la1[11] = jj_gen;
-      jj_consume_token(-1);
-      throw new ParseException();
+                  /*@bgen(jjtree) Attr_smt */
+                  ASTAttr_smt jjtn000 = new ASTAttr_smt(JJTATTR_SMT);
+                  boolean jjtc000 = true;
+                  jjtree.openNodeScope(jjtn000);Token gen=null;
+    try {
+      switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+      case GRAPH:
+        gen = jj_consume_token(GRAPH);
+        break;
+      case ATTR_SMT:
+        gen = jj_consume_token(ATTR_SMT);
+        break;
+      default:
+        jj_la1[11] = jj_gen;
+        jj_consume_token(-1);
+        throw new ParseException();
+      }
+                                        jjtn000.value = gen.image;
+      Attr_list();
+    } catch (Throwable jjte000) {
+     if (jjtc000) {
+       jjtree.clearNodeScope(jjtn000);
+       jjtc000 = false;
+     } else {
+       jjtree.popNode();
+     }
+     if (jjte000 instanceof RuntimeException) {
+       {if (true) throw (RuntimeException)jjte000;}
+     }
+     if (jjte000 instanceof ParseException) {
+       {if (true) throw (ParseException)jjte000;}
+     }
+     {if (true) throw (Error)jjte000;}
+    } finally {
+     if (jjtc000) {
+       jjtree.closeNodeScope(jjtn000, true);
+     }
     }
-    Attr_list();
   }
 
   final public void Node_id() throws ParseException {
@@ -586,6 +612,10 @@ void Node_stmt(): {}
     }
   }
 
+/*void Port(): {}
+{
+  < COLON > ( < ID > [< COLON > < COMPASS_PT >] | < COMPASS_PT > )
+}*/
   final public void Port() throws ParseException {
               /*@bgen(jjtree) Port */
   ASTPort jjtn000 = new ASTPort(JJTPORT);
@@ -593,27 +623,7 @@ void Node_stmt(): {}
   jjtree.openNodeScope(jjtn000);
     try {
       jj_consume_token(COLON);
-      switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-      case ID:
-        jj_consume_token(ID);
-        switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-        case COLON:
-          jj_consume_token(COLON);
-          jj_consume_token(COMPASS_PT);
-          break;
-        default:
-          jj_la1[23] = jj_gen;
-          ;
-        }
-        break;
-      case COMPASS_PT:
-        jj_consume_token(COMPASS_PT);
-        break;
-      default:
-        jj_la1[24] = jj_gen;
-        jj_consume_token(-1);
-        throw new ParseException();
-      }
+      jj_consume_token(COMPASS_PT);
     } finally {
     if (jjtc000) {
       jjtree.closeNodeScope(jjtn000, true);
@@ -630,7 +640,7 @@ void Node_stmt(): {}
   public Token jj_nt;
   private int jj_ntk;
   private int jj_gen;
-  final private int[] jj_la1 = new int[25];
+  final private int[] jj_la1 = new int[23];
   static private int[] jj_la1_0;
   static private int[] jj_la1_1;
   static {
@@ -638,10 +648,10 @@ void Node_stmt(): {}
       jj_la1_init_1();
    }
    private static void jj_la1_init_0() {
-      jj_la1_0 = new int[] {0x100,0xc0,0x2000,0x42640,0x800000,0x42640,0x42640,0x1000000,0x400000,0x100000,0x30000,0x240,0x400000,0x2000,0x100000,0x2000000,0x2000,0x2000,0x400,0x100000,0x30000,0x42400,0x30000,0x400000,0x2800,};
+      jj_la1_0 = new int[] {0x2000,0x100,0xc0,0x42640,0x800000,0x42640,0x42640,0x1000000,0x400000,0x100000,0x30000,0x240,0x400000,0x2000,0x100000,0x2000000,0x2000,0x2000,0x400,0x100000,0x30000,0x42400,0x30000,};
    }
    private static void jj_la1_init_1() {
-      jj_la1_1 = new int[] {0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,};
+      jj_la1_1 = new int[] {0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,};
    }
 
   /** Constructor with InputStream. */
@@ -655,7 +665,7 @@ void Node_stmt(): {}
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 25; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 23; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -670,7 +680,7 @@ void Node_stmt(): {}
     jj_ntk = -1;
     jjtree.reset();
     jj_gen = 0;
-    for (int i = 0; i < 25; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 23; i++) jj_la1[i] = -1;
   }
 
   /** Constructor. */
@@ -680,7 +690,7 @@ void Node_stmt(): {}
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 25; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 23; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -691,7 +701,7 @@ void Node_stmt(): {}
     jj_ntk = -1;
     jjtree.reset();
     jj_gen = 0;
-    for (int i = 0; i < 25; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 23; i++) jj_la1[i] = -1;
   }
 
   /** Constructor with generated Token Manager. */
@@ -700,7 +710,7 @@ void Node_stmt(): {}
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 25; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 23; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -710,7 +720,7 @@ void Node_stmt(): {}
     jj_ntk = -1;
     jjtree.reset();
     jj_gen = 0;
-    for (int i = 0; i < 25; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 23; i++) jj_la1[i] = -1;
   }
 
   private Token jj_consume_token(int kind) throws ParseException {
@@ -766,7 +776,7 @@ void Node_stmt(): {}
       la1tokens[jj_kind] = true;
       jj_kind = -1;
     }
-    for (int i = 0; i < 25; i++) {
+    for (int i = 0; i < 23; i++) {
       if (jj_la1[i] == jj_gen) {
         for (int j = 0; j < 32; j++) {
           if ((jj_la1_0[i] & (1<<j)) != 0) {

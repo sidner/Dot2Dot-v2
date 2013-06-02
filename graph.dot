@@ -1,0 +1,1865 @@
+graph GraphID 
+{
+C_0 -> H_0 C_0 -- H_1 C_0 -- H_2 C_0 -- C_1 C_1 -- H_3 C_1 -- H_4 C_1 -- H_5 
+}
+
+digraph GraphID 
+{
+one -> twotwo -> threethree -> fourfour -> fivefive -> oneone -> three 
+}
+
+digraph GraphID 
+{
+"1" color :  [white] 
+:  [blue] 
+"2gat" color :  [white] 
+:  [blue] 
+"3gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"1gat" -> "3gat" label :  ["green"] 
+"2gat" -> "3gat" -> Z1 
+}
+
+digraph GraphID 
+{
+"branch 1" color :  ["white"] 
+:  [blue] 
+"1gat" color :  ["white"] 
+:  [blue] 
+"branch 3" color :  ["white"] 
+:  [blue] 
+"2gat" color :  ["white"] 
+:  [blue] 
+"22gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"6gat" color :  ["white"] 
+:  [blue] 
+"branch 2" color :  ["white"] 
+:  [blue] 
+"23gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"10gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"3gat" color :  ["white"] 
+:  [blue] 
+"11gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"16gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"7gat" color :  ["white"] 
+:  [blue] 
+"19gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"3gat" -> "branch 1" "6gat" -> "11gat" "2gat" -> "16gat" "10gat" -> "22gat" "7gat" -> "19gat" "branch 3" -> "23gat" "branch 2" -> "16gat" "branch 1" -> "11gat" "branch 3" -> "22gat" "11gat" -> "branch 2" "branch 1" -> "10gat" "branch 2" -> "19gat" "19gat" -> "23gat" "1gat" -> "10gat" "16gat" -> "branch 3" 
+}
+
+digraph GraphID 
+{
+1 label :  ["\{outputS\} \[ILOC add numbers calculation\n\n\]"] 
+2 label :  ["\{outputS\} \[Enter the number of integers you want to add\n\]"] 
+3 label :  ["\{inputIntToReg\} =\> \[rn\]"] 
+4 label :  ["\{outputS\} \[Enter \]"] 
+5 label :  ["\{outputR\} \[rn\]"] 
+6 label :  ["\{outputS\} \[ integers\n\]"] 
+7 label :  ["\{loadI\} \[0\] =\> \[r_sum\]"] 
+8 label :  ["\{loadI\} \[1\] =\> \[rc\]"] 
+9 label :  ["L_start: \{comp\} \[rc\], \[rn\] =\> \[cc1\]"] 
+10 label :  ["\{cbr_LE\} \[cc1\] =\> \[L_cont\], \[L_end\]"] 
+11 label :  ["L_cont: \{inputIntToReg\} =\> \[r_val\]"] 
+12 label :  ["\{add\} \[r_sum\], \[r_val\] =\> \[r_sum\]"] 
+13 label :  ["\{addI\} \[rc\], \[1\] =\> \[rc\]"] 
+14 label :  ["\{jumpI\} =\> \[L_start\]"] 
+15 label :  ["L_end: \{outputS\} \[Sum of entered integers = \]"] 
+16 label :  ["\{outputR\} \[r_sum\]"] 
+17 label :  ["\{outputS\} \[\n\]"] 
+1 -> 2 label :  [""] 
+2 -> 3 label :  [""] 
+3 -> 4 label :  [""] 
+4 -> 5 label :  [""] 
+5 -> 6 label :  [""] 
+6 -> 7 label :  [""] 
+7 -> 8 label :  [""] 
+8 -> 9 label :  [""] 
+9 -> 10 label :  [""] 
+10 -> 11 label :  ["  L_cont"] 
+10 -> 15 label :  ["  L_end"] 
+11 -> 12 label :  [""] 
+12 -> 13 label :  [""] 
+13 -> 14 label :  [""] 
+14 -> 9 label :  ["  L_start"] 
+14 -> 15 label :  [""] 
+15 -> 16 label :  [""] 
+16 -> 17 label :  [""] 
+
+}
+
+graph GraphID 
+{
+1 label :  ["r_fact"] 
+2 label :  ["r1"] 
+1 -- 2 label :  ["(r_fact : r1)"] 
+
+}
+
+graph GraphID 
+{
+1 label :  ["r_fact"] 
+2 label :  ["r1"] 
+3 label :  ["r2"] 
+1 -- 2 label :  ["(r_fact : r1)"] 
+3 -- 2 label :  ["(r2 : r1)"] 
+3 -- 1 label :  ["(r2 : r_fact)"] 
+
+}
+
+graph GraphID 
+{
+1 label :  ["r_fact"] 
+2 label :  ["r1"] 
+3 label :  ["r2"] 
+4 label :  ["r3"] 
+1 -- 2 label :  ["(r_fact : r1)"] 
+3 -- 2 label :  ["(r2 : r1)"] 
+3 -- 1 label :  ["(r2 : r_fact)"] 
+4 -- 3 label :  ["(r3 : r2)"] 
+4 -- 2 label :  ["(r3 : r1)"] 
+4 -- 1 label :  ["(r3 : r_fact)"] 
+
+}
+
+digraph GraphID 
+{
+1 label :  ["\{outputS\} \[ILOC factorial calculation\n\n\]"] 
+2 label :  ["\{outputS\} \[Enter a number to calculate it's factorial\n\]"] 
+3 label :  ["\{inputIntToReg\} =\> \[r1\]"] 
+4 label :  ["\{loadI\} \[1\] =\> \[r_fact\]"] 
+5 label :  ["\{loadI\} \[1\] =\> \[r_spill_v_r2\]"] 
+6 label :  ["\{storeAI\} \[r_spill_v_r2\] =\> \[r_spill\], \[1\]"] 
+7 label :  ["\{loadAI\} \[r_spill\], \[1\] =\> \[r_spill_v_r2\]"] 
+8 label :  ["L_start: \{cmp_LT\} \[r_spill_v_r2\], \[r1\] =\> \[r_spill_v_r3\]"] 
+9 label :  ["\{storeAI\} \[r_spill_v_r3\] =\> \[r_spill\], \[0\]"] 
+10 label :  ["\{loadAI\} \[r_spill\], \[0\] =\> \[r_spill_v_r3\]"] 
+11 label :  ["\{cbr\} \[r_spill_v_r3\] =\> \[L_cont\], \[L_end\]"] 
+12 label :  ["\{loadAI\} \[r_spill\], \[1\] =\> \[r_spill_v_r2\]"] 
+13 label :  ["L_cont: \{addI\} \[r_spill_v_r2\], \[1\] =\> \[r_spill_v_r2\]"] 
+14 label :  ["\{storeAI\} \[r_spill_v_r2\] =\> \[r_spill\], \[1\]"] 
+15 label :  ["\{loadAI\} \[r_spill\], \[1\] =\> \[r_spill_v_r2\]"] 
+16 label :  ["\{mult\} \[r_fact\], \[r_spill_v_r2\] =\> \[r_fact\]"] 
+17 label :  ["\{jumpI\} =\> \[L_start\]"] 
+18 label :  ["L_end: \{outputS\} \[Factorial of \]"] 
+19 label :  ["\{outputR\} \[r1\]"] 
+20 label :  ["\{outputS\} \[ = \]"] 
+21 label :  ["\{outputR\} \[r_fact\]"] 
+22 label :  ["\{outputS\} \[\n\]"] 
+1 -> 2 label :  [""] 
+2 -> 3 label :  [""] 
+3 -> 4 label :  [""] 
+4 -> 5 label :  [""] 
+5 -> 6 label :  [""] 
+6 -> 7 label :  [""] 
+7 -> 8 label :  [""] 
+8 -> 9 label :  [""] 
+9 -> 10 label :  [""] 
+10 -> 11 label :  [""] 
+11 -> 13 label :  ["  L_cont"] 
+11 -> 18 label :  ["  L_end"] 
+11 -> 12 label :  [""] 
+12 -> 13 label :  [""] 
+13 -> 14 label :  [""] 
+14 -> 15 label :  [""] 
+15 -> 16 label :  [""] 
+16 -> 17 label :  [""] 
+17 -> 8 label :  ["  L_start"] 
+17 -> 18 label :  [""] 
+18 -> 19 label :  [""] 
+19 -> 20 label :  [""] 
+20 -> 21 label :  [""] 
+21 -> 22 label :  [""] 
+
+}
+
+digraph GraphID 
+{
+1 label :  ["\{outputS\} \[ILOC factorial calculation\n\n\]"] 
+2 label :  ["\{outputS\} \[Enter a number to calculate it's factorial\n\]"] 
+3 label :  ["\{inputIntToReg\} =\> \[r1\]"] 
+4 label :  ["\{loadI\} \[1\] =\> \[r_fact\]"] 
+5 label :  ["\{loadI\} \[1\] =\> \[r2\]"] 
+6 label :  ["L_start: \{cmp_LT\} \[r2\], \[r1\] =\> \[r_spill_v_r3\]"] 
+7 label :  ["\{storeAI\} \[r_spill_v_r3\] =\> \[r_spill\], \[0\]"] 
+8 label :  ["\{loadAI\} \[r_spill\], \[0\] =\> \[r_spill_v_r3\]"] 
+9 label :  ["\{cbr\} \[r_spill_v_r3\] =\> \[L_cont\], \[L_end\]"] 
+10 label :  ["L_cont: \{addI\} \[r2\], \[1\] =\> \[r2\]"] 
+11 label :  ["\{mult\} \[r_fact\], \[r2\] =\> \[r_fact\]"] 
+12 label :  ["\{jumpI\} =\> \[L_start\]"] 
+13 label :  ["L_end: \{outputS\} \[Factorial of \]"] 
+14 label :  ["\{outputR\} \[r1\]"] 
+15 label :  ["\{outputS\} \[ = \]"] 
+16 label :  ["\{outputR\} \[r_fact\]"] 
+17 label :  ["\{outputS\} \[\n\]"] 
+1 -> 2 label :  [""] 
+2 -> 3 label :  [""] 
+3 -> 4 label :  [""] 
+4 -> 5 label :  [""] 
+5 -> 6 label :  [""] 
+6 -> 7 label :  [""] 
+7 -> 8 label :  [""] 
+8 -> 9 label :  [""] 
+9 -> 10 label :  ["  L_cont"] 
+9 -> 13 label :  ["  L_end"] 
+10 -> 11 label :  [""] 
+11 -> 12 label :  [""] 
+12 -> 6 label :  ["  L_start"] 
+12 -> 13 label :  [""] 
+13 -> 14 label :  [""] 
+14 -> 15 label :  [""] 
+15 -> 16 label :  [""] 
+16 -> 17 label :  [""] 
+
+}
+
+digraph GraphID 
+{
+1 label :  ["\{outputS\} \[ILOC factorial calculation\n\n\]"] 
+2 label :  ["\{outputS\} \[Enter a number to calculate it's factorial\n\]"] 
+3 label :  ["\{inputIntToReg\} =\> \[r1\]"] 
+4 label :  ["\{loadI\} \[1\] =\> \[r_fact\]"] 
+5 label :  ["\{loadI\} \[1\] =\> \[r2\]"] 
+6 label :  ["L_start: \{cmp_LT\} \[r2\], \[r1\] =\> \[r3\]"] 
+7 label :  ["\{cbr\} \[r3\] =\> \[L_cont\], \[L_end\]"] 
+8 label :  ["L_cont: \{addI\} \[r2\], \[1\] =\> \[r2\]"] 
+9 label :  ["\{mult\} \[r_fact\], \[r2\] =\> \[r_fact\]"] 
+10 label :  ["\{jumpI\} =\> \[L_start\]"] 
+11 label :  ["L_end: \{outputS\} \[Factorial of \]"] 
+12 label :  ["\{outputR\} \[r1\]"] 
+13 label :  ["\{outputS\} \[ = \]"] 
+14 label :  ["\{outputR\} \[r_fact\]"] 
+15 label :  ["\{outputS\} \[\n\]"] 
+1 -> 2 label :  [""] 
+2 -> 3 label :  [""] 
+3 -> 4 label :  [""] 
+4 -> 5 label :  [""] 
+5 -> 6 label :  [""] 
+6 -> 7 label :  [""] 
+7 -> 8 label :  ["  L_cont"] 
+7 -> 11 label :  ["  L_end"] 
+8 -> 9 label :  [""] 
+9 -> 10 label :  [""] 
+10 -> 6 label :  ["  L_start"] 
+10 -> 11 label :  [""] 
+11 -> 12 label :  [""] 
+12 -> 13 label :  [""] 
+13 -> 14 label :  [""] 
+14 -> 15 label :  [""] 
+
+}
+
+digraph GraphID 
+{
+"1" color :  [white] 
+:  [blue] 
+"2gat" color :  [white] 
+:  [blue] 
+"3gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"1gat" -> "3gat" label :  ["green"] 
+"2gat" -> "3gat" -> Z1 
+}
+
+graph GraphID 
+{
+C_0 -> H_0 C_0 -- H_1 C_0 -- H_2 C_0 -- C_1 C_1 -- H_3 C_1 -- H_4 C_1 -- H_5 
+}
+
+digraph GraphID 
+{
+one -> twotwo -> threethree -> fourfour -> fivefive -> oneone -> three 
+}
+
+digraph GraphID 
+{
+"1" color :  [white] 
+:  [blue] 
+"2gat" color :  [white] 
+:  [blue] 
+"3gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"1gat" -> "3gat" label :  ["green"] 
+"2gat" -> "3gat" -> Z1 
+}
+
+digraph GraphID 
+{
+"branch 1" color :  ["white"] 
+:  [blue] 
+"1gat" color :  ["white"] 
+:  [blue] 
+"branch 3" color :  ["white"] 
+:  [blue] 
+"2gat" color :  ["white"] 
+:  [blue] 
+"22gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"6gat" color :  ["white"] 
+:  [blue] 
+"branch 2" color :  ["white"] 
+:  [blue] 
+"23gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"10gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"3gat" color :  ["white"] 
+:  [blue] 
+"11gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"16gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"7gat" color :  ["white"] 
+:  [blue] 
+"19gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"3gat" -> "branch 1" "6gat" -> "11gat" "2gat" -> "16gat" "10gat" -> "22gat" "7gat" -> "19gat" "branch 3" -> "23gat" "branch 2" -> "16gat" "branch 1" -> "11gat" "branch 3" -> "22gat" "11gat" -> "branch 2" "branch 1" -> "10gat" "branch 2" -> "19gat" "19gat" -> "23gat" "1gat" -> "10gat" "16gat" -> "branch 3" 
+}
+
+digraph GraphID 
+{
+1 label :  ["\{outputS\} \[ILOC add numbers calculation\n\n\]"] 
+2 label :  ["\{outputS\} \[Enter the number of integers you want to add\n\]"] 
+3 label :  ["\{inputIntToReg\} =\> \[rn\]"] 
+4 label :  ["\{outputS\} \[Enter \]"] 
+5 label :  ["\{outputR\} \[rn\]"] 
+6 label :  ["\{outputS\} \[ integers\n\]"] 
+7 label :  ["\{loadI\} \[0\] =\> \[r_sum\]"] 
+8 label :  ["\{loadI\} \[1\] =\> \[rc\]"] 
+9 label :  ["L_start: \{comp\} \[rc\], \[rn\] =\> \[cc1\]"] 
+10 label :  ["\{cbr_LE\} \[cc1\] =\> \[L_cont\], \[L_end\]"] 
+11 label :  ["L_cont: \{inputIntToReg\} =\> \[r_val\]"] 
+12 label :  ["\{add\} \[r_sum\], \[r_val\] =\> \[r_sum\]"] 
+13 label :  ["\{addI\} \[rc\], \[1\] =\> \[rc\]"] 
+14 label :  ["\{jumpI\} =\> \[L_start\]"] 
+15 label :  ["L_end: \{outputS\} \[Sum of entered integers = \]"] 
+16 label :  ["\{outputR\} \[r_sum\]"] 
+17 label :  ["\{outputS\} \[\n\]"] 
+1 -> 2 label :  [""] 
+2 -> 3 label :  [""] 
+3 -> 4 label :  [""] 
+4 -> 5 label :  [""] 
+5 -> 6 label :  [""] 
+6 -> 7 label :  [""] 
+7 -> 8 label :  [""] 
+8 -> 9 label :  [""] 
+9 -> 10 label :  [""] 
+10 -> 11 label :  ["  L_cont"] 
+10 -> 15 label :  ["  L_end"] 
+11 -> 12 label :  [""] 
+12 -> 13 label :  [""] 
+13 -> 14 label :  [""] 
+14 -> 9 label :  ["  L_start"] 
+14 -> 15 label :  [""] 
+15 -> 16 label :  [""] 
+16 -> 17 label :  [""] 
+
+}
+
+graph GraphID 
+{
+1 label :  ["r_fact"] 
+2 label :  ["r1"] 
+1 -- 2 label :  ["(r_fact : r1)"] 
+
+}
+
+graph GraphID 
+{
+1 label :  ["r_fact"] 
+2 label :  ["r1"] 
+3 label :  ["r2"] 
+1 -- 2 label :  ["(r_fact : r1)"] 
+3 -- 2 label :  ["(r2 : r1)"] 
+3 -- 1 label :  ["(r2 : r_fact)"] 
+
+}
+
+graph GraphID 
+{
+1 label :  ["r_fact"] 
+2 label :  ["r1"] 
+3 label :  ["r2"] 
+4 label :  ["r3"] 
+1 -- 2 label :  ["(r_fact : r1)"] 
+3 -- 2 label :  ["(r2 : r1)"] 
+3 -- 1 label :  ["(r2 : r_fact)"] 
+4 -- 3 label :  ["(r3 : r2)"] 
+4 -- 2 label :  ["(r3 : r1)"] 
+4 -- 1 label :  ["(r3 : r_fact)"] 
+
+}
+
+digraph GraphID 
+{
+1 label :  ["\{outputS\} \[ILOC factorial calculation\n\n\]"] 
+2 label :  ["\{outputS\} \[Enter a number to calculate it's factorial\n\]"] 
+3 label :  ["\{inputIntToReg\} =\> \[r1\]"] 
+4 label :  ["\{loadI\} \[1\] =\> \[r_fact\]"] 
+5 label :  ["\{loadI\} \[1\] =\> \[r_spill_v_r2\]"] 
+6 label :  ["\{storeAI\} \[r_spill_v_r2\] =\> \[r_spill\], \[1\]"] 
+7 label :  ["\{loadAI\} \[r_spill\], \[1\] =\> \[r_spill_v_r2\]"] 
+8 label :  ["L_start: \{cmp_LT\} \[r_spill_v_r2\], \[r1\] =\> \[r_spill_v_r3\]"] 
+9 label :  ["\{storeAI\} \[r_spill_v_r3\] =\> \[r_spill\], \[0\]"] 
+10 label :  ["\{loadAI\} \[r_spill\], \[0\] =\> \[r_spill_v_r3\]"] 
+11 label :  ["\{cbr\} \[r_spill_v_r3\] =\> \[L_cont\], \[L_end\]"] 
+12 label :  ["\{loadAI\} \[r_spill\], \[1\] =\> \[r_spill_v_r2\]"] 
+13 label :  ["L_cont: \{addI\} \[r_spill_v_r2\], \[1\] =\> \[r_spill_v_r2\]"] 
+14 label :  ["\{storeAI\} \[r_spill_v_r2\] =\> \[r_spill\], \[1\]"] 
+15 label :  ["\{loadAI\} \[r_spill\], \[1\] =\> \[r_spill_v_r2\]"] 
+16 label :  ["\{mult\} \[r_fact\], \[r_spill_v_r2\] =\> \[r_fact\]"] 
+17 label :  ["\{jumpI\} =\> \[L_start\]"] 
+18 label :  ["L_end: \{outputS\} \[Factorial of \]"] 
+19 label :  ["\{outputR\} \[r1\]"] 
+20 label :  ["\{outputS\} \[ = \]"] 
+21 label :  ["\{outputR\} \[r_fact\]"] 
+22 label :  ["\{outputS\} \[\n\]"] 
+1 -> 2 label :  [""] 
+2 -> 3 label :  [""] 
+3 -> 4 label :  [""] 
+4 -> 5 label :  [""] 
+5 -> 6 label :  [""] 
+6 -> 7 label :  [""] 
+7 -> 8 label :  [""] 
+8 -> 9 label :  [""] 
+9 -> 10 label :  [""] 
+10 -> 11 label :  [""] 
+11 -> 13 label :  ["  L_cont"] 
+11 -> 18 label :  ["  L_end"] 
+11 -> 12 label :  [""] 
+12 -> 13 label :  [""] 
+13 -> 14 label :  [""] 
+14 -> 15 label :  [""] 
+15 -> 16 label :  [""] 
+16 -> 17 label :  [""] 
+17 -> 8 label :  ["  L_start"] 
+17 -> 18 label :  [""] 
+18 -> 19 label :  [""] 
+19 -> 20 label :  [""] 
+20 -> 21 label :  [""] 
+21 -> 22 label :  [""] 
+
+}
+
+digraph GraphID 
+{
+1 label :  ["\{outputS\} \[ILOC factorial calculation\n\n\]"] 
+2 label :  ["\{outputS\} \[Enter a number to calculate it's factorial\n\]"] 
+3 label :  ["\{inputIntToReg\} =\> \[r1\]"] 
+4 label :  ["\{loadI\} \[1\] =\> \[r_fact\]"] 
+5 label :  ["\{loadI\} \[1\] =\> \[r2\]"] 
+6 label :  ["L_start: \{cmp_LT\} \[r2\], \[r1\] =\> \[r_spill_v_r3\]"] 
+7 label :  ["\{storeAI\} \[r_spill_v_r3\] =\> \[r_spill\], \[0\]"] 
+8 label :  ["\{loadAI\} \[r_spill\], \[0\] =\> \[r_spill_v_r3\]"] 
+9 label :  ["\{cbr\} \[r_spill_v_r3\] =\> \[L_cont\], \[L_end\]"] 
+10 label :  ["L_cont: \{addI\} \[r2\], \[1\] =\> \[r2\]"] 
+11 label :  ["\{mult\} \[r_fact\], \[r2\] =\> \[r_fact\]"] 
+12 label :  ["\{jumpI\} =\> \[L_start\]"] 
+13 label :  ["L_end: \{outputS\} \[Factorial of \]"] 
+14 label :  ["\{outputR\} \[r1\]"] 
+15 label :  ["\{outputS\} \[ = \]"] 
+16 label :  ["\{outputR\} \[r_fact\]"] 
+17 label :  ["\{outputS\} \[\n\]"] 
+1 -> 2 label :  [""] 
+2 -> 3 label :  [""] 
+3 -> 4 label :  [""] 
+4 -> 5 label :  [""] 
+5 -> 6 label :  [""] 
+6 -> 7 label :  [""] 
+7 -> 8 label :  [""] 
+8 -> 9 label :  [""] 
+9 -> 10 label :  ["  L_cont"] 
+9 -> 13 label :  ["  L_end"] 
+10 -> 11 label :  [""] 
+11 -> 12 label :  [""] 
+12 -> 6 label :  ["  L_start"] 
+12 -> 13 label :  [""] 
+13 -> 14 label :  [""] 
+14 -> 15 label :  [""] 
+15 -> 16 label :  [""] 
+16 -> 17 label :  [""] 
+
+}
+
+digraph GraphID 
+{
+1 label :  ["\{outputS\} \[ILOC factorial calculation\n\n\]"] 
+2 label :  ["\{outputS\} \[Enter a number to calculate it's factorial\n\]"] 
+3 label :  ["\{inputIntToReg\} =\> \[r1\]"] 
+4 label :  ["\{loadI\} \[1\] =\> \[r_fact\]"] 
+5 label :  ["\{loadI\} \[1\] =\> \[r2\]"] 
+6 label :  ["L_start: \{cmp_LT\} \[r2\], \[r1\] =\> \[r3\]"] 
+7 label :  ["\{cbr\} \[r3\] =\> \[L_cont\], \[L_end\]"] 
+8 label :  ["L_cont: \{addI\} \[r2\], \[1\] =\> \[r2\]"] 
+9 label :  ["\{mult\} \[r_fact\], \[r2\] =\> \[r_fact\]"] 
+10 label :  ["\{jumpI\} =\> \[L_start\]"] 
+11 label :  ["L_end: \{outputS\} \[Factorial of \]"] 
+12 label :  ["\{outputR\} \[r1\]"] 
+13 label :  ["\{outputS\} \[ = \]"] 
+14 label :  ["\{outputR\} \[r_fact\]"] 
+15 label :  ["\{outputS\} \[\n\]"] 
+1 -> 2 label :  [""] 
+2 -> 3 label :  [""] 
+3 -> 4 label :  [""] 
+4 -> 5 label :  [""] 
+5 -> 6 label :  [""] 
+6 -> 7 label :  [""] 
+7 -> 8 label :  ["  L_cont"] 
+7 -> 11 label :  ["  L_end"] 
+8 -> 9 label :  [""] 
+9 -> 10 label :  [""] 
+10 -> 6 label :  ["  L_start"] 
+10 -> 11 label :  [""] 
+11 -> 12 label :  [""] 
+12 -> 13 label :  [""] 
+13 -> 14 label :  [""] 
+14 -> 15 label :  [""] 
+
+}
+
+digraph GraphID 
+{
+"1" color :  [white] 
+:  [blue] 
+"2gat" color :  [white] 
+:  [blue] 
+"3gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"1gat" -> "3gat" label :  ["green"] 
+"2gat" -> "3gat" -> Z1 
+}
+
+graph GraphID 
+{
+C_0 -> H_0 C_0 -- H_1 C_0 -- H_2 C_0 -- C_1 C_1 -- H_3 C_1 -- H_4 C_1 -- H_5 
+}
+
+digraph GraphID 
+{
+one -> twotwo -> threethree -> fourfour -> fivefive -> oneone -> three 
+}
+
+digraph GraphID 
+{
+"1" color :  [white] 
+:  [blue] 
+"2gat" color :  [white] 
+:  [blue] 
+"3gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"1gat" -> "3gat" label :  ["green"] 
+"2gat" -> "3gat" -> Z1 
+}
+
+digraph GraphID 
+{
+"branch 1" color :  ["white"] 
+:  [blue] 
+"1gat" color :  ["white"] 
+:  [blue] 
+"branch 3" color :  ["white"] 
+:  [blue] 
+"2gat" color :  ["white"] 
+:  [blue] 
+"22gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"6gat" color :  ["white"] 
+:  [blue] 
+"branch 2" color :  ["white"] 
+:  [blue] 
+"23gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"10gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"3gat" color :  ["white"] 
+:  [blue] 
+"11gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"16gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"7gat" color :  ["white"] 
+:  [blue] 
+"19gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"3gat" -> "branch 1" "6gat" -> "11gat" "2gat" -> "16gat" "10gat" -> "22gat" "7gat" -> "19gat" "branch 3" -> "23gat" "branch 2" -> "16gat" "branch 1" -> "11gat" "branch 3" -> "22gat" "11gat" -> "branch 2" "branch 1" -> "10gat" "branch 2" -> "19gat" "19gat" -> "23gat" "1gat" -> "10gat" "16gat" -> "branch 3" 
+}
+
+digraph GraphID 
+{
+1 label :  ["\{outputS\} \[ILOC add numbers calculation\n\n\]"] 
+2 label :  ["\{outputS\} \[Enter the number of integers you want to add\n\]"] 
+3 label :  ["\{inputIntToReg\} =\> \[rn\]"] 
+4 label :  ["\{outputS\} \[Enter \]"] 
+5 label :  ["\{outputR\} \[rn\]"] 
+6 label :  ["\{outputS\} \[ integers\n\]"] 
+7 label :  ["\{loadI\} \[0\] =\> \[r_sum\]"] 
+8 label :  ["\{loadI\} \[1\] =\> \[rc\]"] 
+9 label :  ["L_start: \{comp\} \[rc\], \[rn\] =\> \[cc1\]"] 
+10 label :  ["\{cbr_LE\} \[cc1\] =\> \[L_cont\], \[L_end\]"] 
+11 label :  ["L_cont: \{inputIntToReg\} =\> \[r_val\]"] 
+12 label :  ["\{add\} \[r_sum\], \[r_val\] =\> \[r_sum\]"] 
+13 label :  ["\{addI\} \[rc\], \[1\] =\> \[rc\]"] 
+14 label :  ["\{jumpI\} =\> \[L_start\]"] 
+15 label :  ["L_end: \{outputS\} \[Sum of entered integers = \]"] 
+16 label :  ["\{outputR\} \[r_sum\]"] 
+17 label :  ["\{outputS\} \[\n\]"] 
+1 -> 2 label :  [""] 
+2 -> 3 label :  [""] 
+3 -> 4 label :  [""] 
+4 -> 5 label :  [""] 
+5 -> 6 label :  [""] 
+6 -> 7 label :  [""] 
+7 -> 8 label :  [""] 
+8 -> 9 label :  [""] 
+9 -> 10 label :  [""] 
+10 -> 11 label :  ["  L_cont"] 
+10 -> 15 label :  ["  L_end"] 
+11 -> 12 label :  [""] 
+12 -> 13 label :  [""] 
+13 -> 14 label :  [""] 
+14 -> 9 label :  ["  L_start"] 
+14 -> 15 label :  [""] 
+15 -> 16 label :  [""] 
+16 -> 17 label :  [""] 
+
+}
+
+graph GraphID 
+{
+1 label :  ["r_fact"] 
+2 label :  ["r1"] 
+1 -- 2 label :  ["(r_fact : r1)"] 
+
+}
+
+graph GraphID 
+{
+1 label :  ["r_fact"] 
+2 label :  ["r1"] 
+3 label :  ["r2"] 
+1 -- 2 label :  ["(r_fact : r1)"] 
+3 -- 2 label :  ["(r2 : r1)"] 
+3 -- 1 label :  ["(r2 : r_fact)"] 
+
+}
+
+graph GraphID 
+{
+1 label :  ["r_fact"] 
+2 label :  ["r1"] 
+3 label :  ["r2"] 
+4 label :  ["r3"] 
+1 -- 2 label :  ["(r_fact : r1)"] 
+3 -- 2 label :  ["(r2 : r1)"] 
+3 -- 1 label :  ["(r2 : r_fact)"] 
+4 -- 3 label :  ["(r3 : r2)"] 
+4 -- 2 label :  ["(r3 : r1)"] 
+4 -- 1 label :  ["(r3 : r_fact)"] 
+
+}
+
+digraph GraphID 
+{
+1 label :  ["\{outputS\} \[ILOC factorial calculation\n\n\]"] 
+2 label :  ["\{outputS\} \[Enter a number to calculate it's factorial\n\]"] 
+3 label :  ["\{inputIntToReg\} =\> \[r1\]"] 
+4 label :  ["\{loadI\} \[1\] =\> \[r_fact\]"] 
+5 label :  ["\{loadI\} \[1\] =\> \[r_spill_v_r2\]"] 
+6 label :  ["\{storeAI\} \[r_spill_v_r2\] =\> \[r_spill\], \[1\]"] 
+7 label :  ["\{loadAI\} \[r_spill\], \[1\] =\> \[r_spill_v_r2\]"] 
+8 label :  ["L_start: \{cmp_LT\} \[r_spill_v_r2\], \[r1\] =\> \[r_spill_v_r3\]"] 
+9 label :  ["\{storeAI\} \[r_spill_v_r3\] =\> \[r_spill\], \[0\]"] 
+10 label :  ["\{loadAI\} \[r_spill\], \[0\] =\> \[r_spill_v_r3\]"] 
+11 label :  ["\{cbr\} \[r_spill_v_r3\] =\> \[L_cont\], \[L_end\]"] 
+12 label :  ["\{loadAI\} \[r_spill\], \[1\] =\> \[r_spill_v_r2\]"] 
+13 label :  ["L_cont: \{addI\} \[r_spill_v_r2\], \[1\] =\> \[r_spill_v_r2\]"] 
+14 label :  ["\{storeAI\} \[r_spill_v_r2\] =\> \[r_spill\], \[1\]"] 
+15 label :  ["\{loadAI\} \[r_spill\], \[1\] =\> \[r_spill_v_r2\]"] 
+16 label :  ["\{mult\} \[r_fact\], \[r_spill_v_r2\] =\> \[r_fact\]"] 
+17 label :  ["\{jumpI\} =\> \[L_start\]"] 
+18 label :  ["L_end: \{outputS\} \[Factorial of \]"] 
+19 label :  ["\{outputR\} \[r1\]"] 
+20 label :  ["\{outputS\} \[ = \]"] 
+21 label :  ["\{outputR\} \[r_fact\]"] 
+22 label :  ["\{outputS\} \[\n\]"] 
+1 -> 2 label :  [""] 
+2 -> 3 label :  [""] 
+3 -> 4 label :  [""] 
+4 -> 5 label :  [""] 
+5 -> 6 label :  [""] 
+6 -> 7 label :  [""] 
+7 -> 8 label :  [""] 
+8 -> 9 label :  [""] 
+9 -> 10 label :  [""] 
+10 -> 11 label :  [""] 
+11 -> 13 label :  ["  L_cont"] 
+11 -> 18 label :  ["  L_end"] 
+11 -> 12 label :  [""] 
+12 -> 13 label :  [""] 
+13 -> 14 label :  [""] 
+14 -> 15 label :  [""] 
+15 -> 16 label :  [""] 
+16 -> 17 label :  [""] 
+17 -> 8 label :  ["  L_start"] 
+17 -> 18 label :  [""] 
+18 -> 19 label :  [""] 
+19 -> 20 label :  [""] 
+20 -> 21 label :  [""] 
+21 -> 22 label :  [""] 
+
+}
+
+digraph GraphID 
+{
+1 label :  ["\{outputS\} \[ILOC factorial calculation\n\n\]"] 
+2 label :  ["\{outputS\} \[Enter a number to calculate it's factorial\n\]"] 
+3 label :  ["\{inputIntToReg\} =\> \[r1\]"] 
+4 label :  ["\{loadI\} \[1\] =\> \[r_fact\]"] 
+5 label :  ["\{loadI\} \[1\] =\> \[r2\]"] 
+6 label :  ["L_start: \{cmp_LT\} \[r2\], \[r1\] =\> \[r_spill_v_r3\]"] 
+7 label :  ["\{storeAI\} \[r_spill_v_r3\] =\> \[r_spill\], \[0\]"] 
+8 label :  ["\{loadAI\} \[r_spill\], \[0\] =\> \[r_spill_v_r3\]"] 
+9 label :  ["\{cbr\} \[r_spill_v_r3\] =\> \[L_cont\], \[L_end\]"] 
+10 label :  ["L_cont: \{addI\} \[r2\], \[1\] =\> \[r2\]"] 
+11 label :  ["\{mult\} \[r_fact\], \[r2\] =\> \[r_fact\]"] 
+12 label :  ["\{jumpI\} =\> \[L_start\]"] 
+13 label :  ["L_end: \{outputS\} \[Factorial of \]"] 
+14 label :  ["\{outputR\} \[r1\]"] 
+15 label :  ["\{outputS\} \[ = \]"] 
+16 label :  ["\{outputR\} \[r_fact\]"] 
+17 label :  ["\{outputS\} \[\n\]"] 
+1 -> 2 label :  [""] 
+2 -> 3 label :  [""] 
+3 -> 4 label :  [""] 
+4 -> 5 label :  [""] 
+5 -> 6 label :  [""] 
+6 -> 7 label :  [""] 
+7 -> 8 label :  [""] 
+8 -> 9 label :  [""] 
+9 -> 10 label :  ["  L_cont"] 
+9 -> 13 label :  ["  L_end"] 
+10 -> 11 label :  [""] 
+11 -> 12 label :  [""] 
+12 -> 6 label :  ["  L_start"] 
+12 -> 13 label :  [""] 
+13 -> 14 label :  [""] 
+14 -> 15 label :  [""] 
+15 -> 16 label :  [""] 
+16 -> 17 label :  [""] 
+
+}
+
+digraph GraphID 
+{
+1 label :  ["\{outputS\} \[ILOC factorial calculation\n\n\]"] 
+2 label :  ["\{outputS\} \[Enter a number to calculate it's factorial\n\]"] 
+3 label :  ["\{inputIntToReg\} =\> \[r1\]"] 
+4 label :  ["\{loadI\} \[1\] =\> \[r_fact\]"] 
+5 label :  ["\{loadI\} \[1\] =\> \[r2\]"] 
+6 label :  ["L_start: \{cmp_LT\} \[r2\], \[r1\] =\> \[r3\]"] 
+7 label :  ["\{cbr\} \[r3\] =\> \[L_cont\], \[L_end\]"] 
+8 label :  ["L_cont: \{addI\} \[r2\], \[1\] =\> \[r2\]"] 
+9 label :  ["\{mult\} \[r_fact\], \[r2\] =\> \[r_fact\]"] 
+10 label :  ["\{jumpI\} =\> \[L_start\]"] 
+11 label :  ["L_end: \{outputS\} \[Factorial of \]"] 
+12 label :  ["\{outputR\} \[r1\]"] 
+13 label :  ["\{outputS\} \[ = \]"] 
+14 label :  ["\{outputR\} \[r_fact\]"] 
+15 label :  ["\{outputS\} \[\n\]"] 
+1 -> 2 label :  [""] 
+2 -> 3 label :  [""] 
+3 -> 4 label :  [""] 
+4 -> 5 label :  [""] 
+5 -> 6 label :  [""] 
+6 -> 7 label :  [""] 
+7 -> 8 label :  ["  L_cont"] 
+7 -> 11 label :  ["  L_end"] 
+8 -> 9 label :  [""] 
+9 -> 10 label :  [""] 
+10 -> 6 label :  ["  L_start"] 
+10 -> 11 label :  [""] 
+11 -> 12 label :  [""] 
+12 -> 13 label :  [""] 
+13 -> 14 label :  [""] 
+14 -> 15 label :  [""] 
+
+}
+
+digraph GraphID 
+{
+"1" color :  [white] 
+:  [blue] 
+"2gat" color :  [white] 
+:  [blue] 
+"3gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"1gat" -> "3gat" label :  ["green"] 
+"2gat" -> "3gat" -> Z1 
+}
+
+graph GraphID 
+{
+C_0 -> H_0 C_0 -- H_1 C_0 -- H_2 C_0 -- C_1 C_1 -- H_3 C_1 -- H_4 C_1 -- H_5 
+}
+
+digraph GraphID 
+{
+a -> b -> P :  [filled] 
+:  [red] 
+
+}
+
+digraph GraphID 
+{
+one -> twotwo -> threethree -> fourfour -> fivefive -> oneone -> three 
+}
+
+digraph GraphID 
+{
+"1" color :  [white] 
+:  [blue] 
+"2gat" color :  [white] 
+:  [blue] 
+"3gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"1gat" -> "3gat" label :  ["green"] 
+"2gat" -> "3gat" -> Z1 
+}
+
+digraph GraphID 
+{
+"branch 1" color :  ["white"] 
+:  [blue] 
+"1gat" color :  ["white"] 
+:  [blue] 
+"branch 3" color :  ["white"] 
+:  [blue] 
+"2gat" color :  ["white"] 
+:  [blue] 
+"22gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"6gat" color :  ["white"] 
+:  [blue] 
+"branch 2" color :  ["white"] 
+:  [blue] 
+"23gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"10gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"3gat" color :  ["white"] 
+:  [blue] 
+"11gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"16gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"7gat" color :  ["white"] 
+:  [blue] 
+"19gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"3gat" -> "branch 1" "6gat" -> "11gat" "2gat" -> "16gat" "10gat" -> "22gat" "7gat" -> "19gat" "branch 3" -> "23gat" "branch 2" -> "16gat" "branch 1" -> "11gat" "branch 3" -> "22gat" "11gat" -> "branch 2" "branch 1" -> "10gat" "branch 2" -> "19gat" "19gat" -> "23gat" "1gat" -> "10gat" "16gat" -> "branch 3" 
+}
+
+digraph GraphID 
+{
+1 label :  ["\{outputS\} \[ILOC add numbers calculation\n\n\]"] 
+2 label :  ["\{outputS\} \[Enter the number of integers you want to add\n\]"] 
+3 label :  ["\{inputIntToReg\} =\> \[rn\]"] 
+4 label :  ["\{outputS\} \[Enter \]"] 
+5 label :  ["\{outputR\} \[rn\]"] 
+6 label :  ["\{outputS\} \[ integers\n\]"] 
+7 label :  ["\{loadI\} \[0\] =\> \[r_sum\]"] 
+8 label :  ["\{loadI\} \[1\] =\> \[rc\]"] 
+9 label :  ["L_start: \{comp\} \[rc\], \[rn\] =\> \[cc1\]"] 
+10 label :  ["\{cbr_LE\} \[cc1\] =\> \[L_cont\], \[L_end\]"] 
+11 label :  ["L_cont: \{inputIntToReg\} =\> \[r_val\]"] 
+12 label :  ["\{add\} \[r_sum\], \[r_val\] =\> \[r_sum\]"] 
+13 label :  ["\{addI\} \[rc\], \[1\] =\> \[rc\]"] 
+14 label :  ["\{jumpI\} =\> \[L_start\]"] 
+15 label :  ["L_end: \{outputS\} \[Sum of entered integers = \]"] 
+16 label :  ["\{outputR\} \[r_sum\]"] 
+17 label :  ["\{outputS\} \[\n\]"] 
+1 -> 2 label :  [""] 
+2 -> 3 label :  [""] 
+3 -> 4 label :  [""] 
+4 -> 5 label :  [""] 
+5 -> 6 label :  [""] 
+6 -> 7 label :  [""] 
+7 -> 8 label :  [""] 
+8 -> 9 label :  [""] 
+9 -> 10 label :  [""] 
+10 -> 11 label :  ["  L_cont"] 
+10 -> 15 label :  ["  L_end"] 
+11 -> 12 label :  [""] 
+12 -> 13 label :  [""] 
+13 -> 14 label :  [""] 
+14 -> 9 label :  ["  L_start"] 
+14 -> 15 label :  [""] 
+15 -> 16 label :  [""] 
+16 -> 17 label :  [""] 
+
+}
+
+graph GraphID 
+{
+1 label :  ["r_fact"] 
+2 label :  ["r1"] 
+1 -- 2 label :  ["(r_fact : r1)"] 
+
+}
+
+graph GraphID 
+{
+1 label :  ["r_fact"] 
+2 label :  ["r1"] 
+3 label :  ["r2"] 
+1 -- 2 label :  ["(r_fact : r1)"] 
+3 -- 2 label :  ["(r2 : r1)"] 
+3 -- 1 label :  ["(r2 : r_fact)"] 
+
+}
+
+graph GraphID 
+{
+1 label :  ["r_fact"] 
+2 label :  ["r1"] 
+3 label :  ["r2"] 
+4 label :  ["r3"] 
+1 -- 2 label :  ["(r_fact : r1)"] 
+3 -- 2 label :  ["(r2 : r1)"] 
+3 -- 1 label :  ["(r2 : r_fact)"] 
+4 -- 3 label :  ["(r3 : r2)"] 
+4 -- 2 label :  ["(r3 : r1)"] 
+4 -- 1 label :  ["(r3 : r_fact)"] 
+
+}
+
+digraph GraphID 
+{
+1 label :  ["\{outputS\} \[ILOC factorial calculation\n\n\]"] 
+2 label :  ["\{outputS\} \[Enter a number to calculate it's factorial\n\]"] 
+3 label :  ["\{inputIntToReg\} =\> \[r1\]"] 
+4 label :  ["\{loadI\} \[1\] =\> \[r_fact\]"] 
+5 label :  ["\{loadI\} \[1\] =\> \[r_spill_v_r2\]"] 
+6 label :  ["\{storeAI\} \[r_spill_v_r2\] =\> \[r_spill\], \[1\]"] 
+7 label :  ["\{loadAI\} \[r_spill\], \[1\] =\> \[r_spill_v_r2\]"] 
+8 label :  ["L_start: \{cmp_LT\} \[r_spill_v_r2\], \[r1\] =\> \[r_spill_v_r3\]"] 
+9 label :  ["\{storeAI\} \[r_spill_v_r3\] =\> \[r_spill\], \[0\]"] 
+10 label :  ["\{loadAI\} \[r_spill\], \[0\] =\> \[r_spill_v_r3\]"] 
+11 label :  ["\{cbr\} \[r_spill_v_r3\] =\> \[L_cont\], \[L_end\]"] 
+12 label :  ["\{loadAI\} \[r_spill\], \[1\] =\> \[r_spill_v_r2\]"] 
+13 label :  ["L_cont: \{addI\} \[r_spill_v_r2\], \[1\] =\> \[r_spill_v_r2\]"] 
+14 label :  ["\{storeAI\} \[r_spill_v_r2\] =\> \[r_spill\], \[1\]"] 
+15 label :  ["\{loadAI\} \[r_spill\], \[1\] =\> \[r_spill_v_r2\]"] 
+16 label :  ["\{mult\} \[r_fact\], \[r_spill_v_r2\] =\> \[r_fact\]"] 
+17 label :  ["\{jumpI\} =\> \[L_start\]"] 
+18 label :  ["L_end: \{outputS\} \[Factorial of \]"] 
+19 label :  ["\{outputR\} \[r1\]"] 
+20 label :  ["\{outputS\} \[ = \]"] 
+21 label :  ["\{outputR\} \[r_fact\]"] 
+22 label :  ["\{outputS\} \[\n\]"] 
+1 -> 2 label :  [""] 
+2 -> 3 label :  [""] 
+3 -> 4 label :  [""] 
+4 -> 5 label :  [""] 
+5 -> 6 label :  [""] 
+6 -> 7 label :  [""] 
+7 -> 8 label :  [""] 
+8 -> 9 label :  [""] 
+9 -> 10 label :  [""] 
+10 -> 11 label :  [""] 
+11 -> 13 label :  ["  L_cont"] 
+11 -> 18 label :  ["  L_end"] 
+11 -> 12 label :  [""] 
+12 -> 13 label :  [""] 
+13 -> 14 label :  [""] 
+14 -> 15 label :  [""] 
+15 -> 16 label :  [""] 
+16 -> 17 label :  [""] 
+17 -> 8 label :  ["  L_start"] 
+17 -> 18 label :  [""] 
+18 -> 19 label :  [""] 
+19 -> 20 label :  [""] 
+20 -> 21 label :  [""] 
+21 -> 22 label :  [""] 
+
+}
+
+digraph GraphID 
+{
+1 label :  ["\{outputS\} \[ILOC factorial calculation\n\n\]"] 
+2 label :  ["\{outputS\} \[Enter a number to calculate it's factorial\n\]"] 
+3 label :  ["\{inputIntToReg\} =\> \[r1\]"] 
+4 label :  ["\{loadI\} \[1\] =\> \[r_fact\]"] 
+5 label :  ["\{loadI\} \[1\] =\> \[r2\]"] 
+6 label :  ["L_start: \{cmp_LT\} \[r2\], \[r1\] =\> \[r_spill_v_r3\]"] 
+7 label :  ["\{storeAI\} \[r_spill_v_r3\] =\> \[r_spill\], \[0\]"] 
+8 label :  ["\{loadAI\} \[r_spill\], \[0\] =\> \[r_spill_v_r3\]"] 
+9 label :  ["\{cbr\} \[r_spill_v_r3\] =\> \[L_cont\], \[L_end\]"] 
+10 label :  ["L_cont: \{addI\} \[r2\], \[1\] =\> \[r2\]"] 
+11 label :  ["\{mult\} \[r_fact\], \[r2\] =\> \[r_fact\]"] 
+12 label :  ["\{jumpI\} =\> \[L_start\]"] 
+13 label :  ["L_end: \{outputS\} \[Factorial of \]"] 
+14 label :  ["\{outputR\} \[r1\]"] 
+15 label :  ["\{outputS\} \[ = \]"] 
+16 label :  ["\{outputR\} \[r_fact\]"] 
+17 label :  ["\{outputS\} \[\n\]"] 
+1 -> 2 label :  [""] 
+2 -> 3 label :  [""] 
+3 -> 4 label :  [""] 
+4 -> 5 label :  [""] 
+5 -> 6 label :  [""] 
+6 -> 7 label :  [""] 
+7 -> 8 label :  [""] 
+8 -> 9 label :  [""] 
+9 -> 10 label :  ["  L_cont"] 
+9 -> 13 label :  ["  L_end"] 
+10 -> 11 label :  [""] 
+11 -> 12 label :  [""] 
+12 -> 6 label :  ["  L_start"] 
+12 -> 13 label :  [""] 
+13 -> 14 label :  [""] 
+14 -> 15 label :  [""] 
+15 -> 16 label :  [""] 
+16 -> 17 label :  [""] 
+
+}
+
+digraph GraphID 
+{
+1 label :  ["\{outputS\} \[ILOC factorial calculation\n\n\]"] 
+2 label :  ["\{outputS\} \[Enter a number to calculate it's factorial\n\]"] 
+3 label :  ["\{inputIntToReg\} =\> \[r1\]"] 
+4 label :  ["\{loadI\} \[1\] =\> \[r_fact\]"] 
+5 label :  ["\{loadI\} \[1\] =\> \[r2\]"] 
+6 label :  ["L_start: \{cmp_LT\} \[r2\], \[r1\] =\> \[r3\]"] 
+7 label :  ["\{cbr\} \[r3\] =\> \[L_cont\], \[L_end\]"] 
+8 label :  ["L_cont: \{addI\} \[r2\], \[1\] =\> \[r2\]"] 
+9 label :  ["\{mult\} \[r_fact\], \[r2\] =\> \[r_fact\]"] 
+10 label :  ["\{jumpI\} =\> \[L_start\]"] 
+11 label :  ["L_end: \{outputS\} \[Factorial of \]"] 
+12 label :  ["\{outputR\} \[r1\]"] 
+13 label :  ["\{outputS\} \[ = \]"] 
+14 label :  ["\{outputR\} \[r_fact\]"] 
+15 label :  ["\{outputS\} \[\n\]"] 
+1 -> 2 label :  [""] 
+2 -> 3 label :  [""] 
+3 -> 4 label :  [""] 
+4 -> 5 label :  [""] 
+5 -> 6 label :  [""] 
+6 -> 7 label :  [""] 
+7 -> 8 label :  ["  L_cont"] 
+7 -> 11 label :  ["  L_end"] 
+8 -> 9 label :  [""] 
+9 -> 10 label :  [""] 
+10 -> 6 label :  ["  L_start"] 
+10 -> 11 label :  [""] 
+11 -> 12 label :  [""] 
+12 -> 13 label :  [""] 
+13 -> 14 label :  [""] 
+14 -> 15 label :  [""] 
+
+}
+
+digraph GraphID 
+{
+"1" color :  [white] 
+:  [blue] 
+"2gat" color :  [white] 
+:  [blue] 
+"3gat" image :  ["NAND.gif"] 
+:  ["white"] 
+:  [blue] 
+"1gat" -> "3gat" label :  ["green"] 
+"2gat" -> "3gat" -> Z1 
+}
+
+graph GraphID 
+{
+C_0 -> H_0 C_0 -- H_1 C_0 -- H_2 C_0 -- C_1 C_1 -- H_3 C_1 -- H_4 C_1 -- H_5 
+}
+
+digraph GraphID 
+{
+a -> b -> P 
+}
+
+digraph GraphID 
+{
+one -> twotwo -> threethree -> fourfour -> fivefive -> oneone -> three 
+}
+
+digraph GraphID 
+{
+"1" color :  [] 
+"2gat" color :  [] 
+"3gat" image :  [] 
+"1gat" -> "3gat" label :  [] 
+"2gat" -> "3gat" -> Z1 
+}
+
+digraph GraphID 
+{
+"branch 1" color :  [] 
+"1gat" color :  [] 
+"branch 3" color :  [] 
+"2gat" color :  [] 
+"22gat" image :  [] 
+"6gat" color :  [] 
+"branch 2" color :  [] 
+"23gat" image :  [] 
+"10gat" image :  [] 
+"3gat" color :  [] 
+"11gat" image :  [] 
+"16gat" image :  [] 
+"7gat" color :  [] 
+"19gat" image :  [] 
+"3gat" -> "branch 1" "6gat" -> "11gat" "2gat" -> "16gat" "10gat" -> "22gat" "7gat" -> "19gat" "branch 3" -> "23gat" "branch 2" -> "16gat" "branch 1" -> "11gat" "branch 3" -> "22gat" "11gat" -> "branch 2" "branch 1" -> "10gat" "branch 2" -> "19gat" "19gat" -> "23gat" "1gat" -> "10gat" "16gat" -> "branch 3" 
+}
+
+digraph GraphID 
+{
+1 label :  [] 
+2 label :  [] 
+3 label :  [] 
+4 label :  [] 
+5 label :  [] 
+6 label :  [] 
+7 label :  [] 
+8 label :  [] 
+9 label :  [] 
+10 label :  [] 
+11 label :  [] 
+12 label :  [] 
+13 label :  [] 
+14 label :  [] 
+15 label :  [] 
+16 label :  [] 
+17 label :  [] 
+1 -> 2 label :  [] 
+2 -> 3 label :  [] 
+3 -> 4 label :  [] 
+4 -> 5 label :  [] 
+5 -> 6 label :  [] 
+6 -> 7 label :  [] 
+7 -> 8 label :  [] 
+8 -> 9 label :  [] 
+9 -> 10 label :  [] 
+10 -> 11 label :  [] 
+10 -> 15 label :  [] 
+11 -> 12 label :  [] 
+12 -> 13 label :  [] 
+13 -> 14 label :  [] 
+14 -> 9 label :  [] 
+14 -> 15 label :  [] 
+15 -> 16 label :  [] 
+16 -> 17 label :  [] 
+
+}
+
+graph GraphID 
+{
+1 label :  [] 
+2 label :  [] 
+1 -- 2 label :  [] 
+
+}
+
+graph GraphID 
+{
+1 label :  [] 
+2 label :  [] 
+3 label :  [] 
+1 -- 2 label :  [] 
+3 -- 2 label :  [] 
+3 -- 1 label :  [] 
+
+}
+
+graph GraphID 
+{
+1 label :  [] 
+2 label :  [] 
+3 label :  [] 
+4 label :  [] 
+1 -- 2 label :  [] 
+3 -- 2 label :  [] 
+3 -- 1 label :  [] 
+4 -- 3 label :  [] 
+4 -- 2 label :  [] 
+4 -- 1 label :  [] 
+
+}
+
+digraph GraphID 
+{
+1 label :  [] 
+2 label :  [] 
+3 label :  [] 
+4 label :  [] 
+5 label :  [] 
+6 label :  [] 
+7 label :  [] 
+8 label :  [] 
+9 label :  [] 
+10 label :  [] 
+11 label :  [] 
+12 label :  [] 
+13 label :  [] 
+14 label :  [] 
+15 label :  [] 
+16 label :  [] 
+17 label :  [] 
+18 label :  [] 
+19 label :  [] 
+20 label :  [] 
+21 label :  [] 
+22 label :  [] 
+1 -> 2 label :  [] 
+2 -> 3 label :  [] 
+3 -> 4 label :  [] 
+4 -> 5 label :  [] 
+5 -> 6 label :  [] 
+6 -> 7 label :  [] 
+7 -> 8 label :  [] 
+8 -> 9 label :  [] 
+9 -> 10 label :  [] 
+10 -> 11 label :  [] 
+11 -> 13 label :  [] 
+11 -> 18 label :  [] 
+11 -> 12 label :  [] 
+12 -> 13 label :  [] 
+13 -> 14 label :  [] 
+14 -> 15 label :  [] 
+15 -> 16 label :  [] 
+16 -> 17 label :  [] 
+17 -> 8 label :  [] 
+17 -> 18 label :  [] 
+18 -> 19 label :  [] 
+19 -> 20 label :  [] 
+20 -> 21 label :  [] 
+21 -> 22 label :  [] 
+
+}
+
+digraph GraphID 
+{
+1 label :  [] 
+2 label :  [] 
+3 label :  [] 
+4 label :  [] 
+5 label :  [] 
+6 label :  [] 
+7 label :  [] 
+8 label :  [] 
+9 label :  [] 
+10 label :  [] 
+11 label :  [] 
+12 label :  [] 
+13 label :  [] 
+14 label :  [] 
+15 label :  [] 
+16 label :  [] 
+17 label :  [] 
+1 -> 2 label :  [] 
+2 -> 3 label :  [] 
+3 -> 4 label :  [] 
+4 -> 5 label :  [] 
+5 -> 6 label :  [] 
+6 -> 7 label :  [] 
+7 -> 8 label :  [] 
+8 -> 9 label :  [] 
+9 -> 10 label :  [] 
+9 -> 13 label :  [] 
+10 -> 11 label :  [] 
+11 -> 12 label :  [] 
+12 -> 6 label :  [] 
+12 -> 13 label :  [] 
+13 -> 14 label :  [] 
+14 -> 15 label :  [] 
+15 -> 16 label :  [] 
+16 -> 17 label :  [] 
+
+}
+
+digraph GraphID 
+{
+1 label :  [] 
+2 label :  [] 
+3 label :  [] 
+4 label :  [] 
+5 label :  [] 
+6 label :  [] 
+7 label :  [] 
+8 label :  [] 
+9 label :  [] 
+10 label :  [] 
+11 label :  [] 
+12 label :  [] 
+13 label :  [] 
+14 label :  [] 
+15 label :  [] 
+1 -> 2 label :  [] 
+2 -> 3 label :  [] 
+3 -> 4 label :  [] 
+4 -> 5 label :  [] 
+5 -> 6 label :  [] 
+6 -> 7 label :  [] 
+7 -> 8 label :  [] 
+7 -> 11 label :  [] 
+8 -> 9 label :  [] 
+9 -> 10 label :  [] 
+10 -> 6 label :  [] 
+10 -> 11 label :  [] 
+11 -> 12 label :  [] 
+12 -> 13 label :  [] 
+13 -> 14 label :  [] 
+14 -> 15 label :  [] 
+
+}
+
+digraph GraphID 
+{
+"1" color :  [] 
+"2gat" color :  [] 
+"3gat" image :  [] 
+"1gat" -> "3gat" label :  [] 
+"2gat" -> "3gat" -> Z1 
+}
+
+graph GraphID 
+{
+C_0 -> H_0 C_0 -- H_1 C_0 -- H_2 C_0 -- C_1 C_1 -- H_3 C_1 -- H_4 C_1 -- H_5 
+}
+
+digraph GraphID 
+{
+one -> twotwo -> threethree -> fourfour -> fivefive -> oneone -> three 
+}
+
+digraph GraphID 
+{
+"1" color :  [] 
+"2gat" color :  [] 
+"3gat" image :  [] 
+"1gat" -> "3gat" label :  [] 
+"2gat" -> "3gat" -> Z1 
+}
+
+digraph GraphID 
+{
+"branch 1" color :  [] 
+"1gat" color :  [] 
+"branch 3" color :  [] 
+"2gat" color :  [] 
+"22gat" image :  [] 
+"6gat" color :  [] 
+"branch 2" color :  [] 
+"23gat" image :  [] 
+"10gat" image :  [] 
+"3gat" color :  [] 
+"11gat" image :  [] 
+"16gat" image :  [] 
+"7gat" color :  [] 
+"19gat" image :  [] 
+"3gat" -> "branch 1" "6gat" -> "11gat" "2gat" -> "16gat" "10gat" -> "22gat" "7gat" -> "19gat" "branch 3" -> "23gat" "branch 2" -> "16gat" "branch 1" -> "11gat" "branch 3" -> "22gat" "11gat" -> "branch 2" "branch 1" -> "10gat" "branch 2" -> "19gat" "19gat" -> "23gat" "1gat" -> "10gat" "16gat" -> "branch 3" 
+}
+
+digraph GraphID 
+{
+1 label :  [] 
+2 label :  [] 
+3 label :  [] 
+4 label :  [] 
+5 label :  [] 
+6 label :  [] 
+7 label :  [] 
+8 label :  [] 
+9 label :  [] 
+10 label :  [] 
+11 label :  [] 
+12 label :  [] 
+13 label :  [] 
+14 label :  [] 
+15 label :  [] 
+16 label :  [] 
+17 label :  [] 
+1 -> 2 label :  [] 
+2 -> 3 label :  [] 
+3 -> 4 label :  [] 
+4 -> 5 label :  [] 
+5 -> 6 label :  [] 
+6 -> 7 label :  [] 
+7 -> 8 label :  [] 
+8 -> 9 label :  [] 
+9 -> 10 label :  [] 
+10 -> 11 label :  [] 
+10 -> 15 label :  [] 
+11 -> 12 label :  [] 
+12 -> 13 label :  [] 
+13 -> 14 label :  [] 
+14 -> 9 label :  [] 
+14 -> 15 label :  [] 
+15 -> 16 label :  [] 
+16 -> 17 label :  [] 
+
+}
+
+graph GraphID 
+{
+1 label :  [] 
+2 label :  [] 
+1 -- 2 label :  [] 
+
+}
+
+graph GraphID 
+{
+1 label :  [] 
+2 label :  [] 
+3 label :  [] 
+1 -- 2 label :  [] 
+3 -- 2 label :  [] 
+3 -- 1 label :  [] 
+
+}
+
+graph GraphID 
+{
+1 label :  [] 
+2 label :  [] 
+3 label :  [] 
+4 label :  [] 
+1 -- 2 label :  [] 
+3 -- 2 label :  [] 
+3 -- 1 label :  [] 
+4 -- 3 label :  [] 
+4 -- 2 label :  [] 
+4 -- 1 label :  [] 
+
+}
+
+digraph GraphID 
+{
+1 label :  [] 
+2 label :  [] 
+3 label :  [] 
+4 label :  [] 
+5 label :  [] 
+6 label :  [] 
+7 label :  [] 
+8 label :  [] 
+9 label :  [] 
+10 label :  [] 
+11 label :  [] 
+12 label :  [] 
+13 label :  [] 
+14 label :  [] 
+15 label :  [] 
+16 label :  [] 
+17 label :  [] 
+18 label :  [] 
+19 label :  [] 
+20 label :  [] 
+21 label :  [] 
+22 label :  [] 
+1 -> 2 label :  [] 
+2 -> 3 label :  [] 
+3 -> 4 label :  [] 
+4 -> 5 label :  [] 
+5 -> 6 label :  [] 
+6 -> 7 label :  [] 
+7 -> 8 label :  [] 
+8 -> 9 label :  [] 
+9 -> 10 label :  [] 
+10 -> 11 label :  [] 
+11 -> 13 label :  [] 
+11 -> 18 label :  [] 
+11 -> 12 label :  [] 
+12 -> 13 label :  [] 
+13 -> 14 label :  [] 
+14 -> 15 label :  [] 
+15 -> 16 label :  [] 
+16 -> 17 label :  [] 
+17 -> 8 label :  [] 
+17 -> 18 label :  [] 
+18 -> 19 label :  [] 
+19 -> 20 label :  [] 
+20 -> 21 label :  [] 
+21 -> 22 label :  [] 
+
+}
+
+digraph GraphID 
+{
+1 label :  [] 
+2 label :  [] 
+3 label :  [] 
+4 label :  [] 
+5 label :  [] 
+6 label :  [] 
+7 label :  [] 
+8 label :  [] 
+9 label :  [] 
+10 label :  [] 
+11 label :  [] 
+12 label :  [] 
+13 label :  [] 
+14 label :  [] 
+15 label :  [] 
+16 label :  [] 
+17 label :  [] 
+1 -> 2 label :  [] 
+2 -> 3 label :  [] 
+3 -> 4 label :  [] 
+4 -> 5 label :  [] 
+5 -> 6 label :  [] 
+6 -> 7 label :  [] 
+7 -> 8 label :  [] 
+8 -> 9 label :  [] 
+9 -> 10 label :  [] 
+9 -> 13 label :  [] 
+10 -> 11 label :  [] 
+11 -> 12 label :  [] 
+12 -> 6 label :  [] 
+12 -> 13 label :  [] 
+13 -> 14 label :  [] 
+14 -> 15 label :  [] 
+15 -> 16 label :  [] 
+16 -> 17 label :  [] 
+
+}
+
+digraph GraphID 
+{
+1 label :  [] 
+2 label :  [] 
+3 label :  [] 
+4 label :  [] 
+5 label :  [] 
+6 label :  [] 
+7 label :  [] 
+8 label :  [] 
+9 label :  [] 
+10 label :  [] 
+11 label :  [] 
+12 label :  [] 
+13 label :  [] 
+14 label :  [] 
+15 label :  [] 
+1 -> 2 label :  [] 
+2 -> 3 label :  [] 
+3 -> 4 label :  [] 
+4 -> 5 label :  [] 
+5 -> 6 label :  [] 
+6 -> 7 label :  [] 
+7 -> 8 label :  [] 
+7 -> 11 label :  [] 
+8 -> 9 label :  [] 
+9 -> 10 label :  [] 
+10 -> 6 label :  [] 
+10 -> 11 label :  [] 
+11 -> 12 label :  [] 
+12 -> 13 label :  [] 
+13 -> 14 label :  [] 
+14 -> 15 label :  [] 
+
+}
+
+digraph GraphID 
+{
+"1" color :  [] 
+"2gat" color :  [] 
+"3gat" image :  [] 
+"1gat" -> "3gat" label :  [] 
+"2gat" -> "3gat" -> Z1 
+}
+
+graph GraphID 
+{
+C_0 -> H_0 C_0 -- H_1 C_0 -- H_2 C_0 -- C_1 C_1 -- H_3 C_1 -- H_4 C_1 -- H_5 
+}
+
+digraph GraphID 
+{
+a -> b -> P 
+}
+
+digraph GraphID 
+{
+one -> twotwo -> threethree -> fourfour -> fivefive -> oneone -> three 
+}
+
+digraph GraphID 
+{
+"1" color :  [] 
+"2gat" color :  [] 
+"3gat" image :  [] 
+"1gat" -> "3gat" label :  [] 
+"2gat" -> "3gat" -> Z1 
+}
+
+digraph GraphID 
+{
+"branch 1" color :  [] 
+"1gat" color :  [] 
+"branch 3" color :  [] 
+"2gat" color :  [] 
+"22gat" image :  [] 
+"6gat" color :  [] 
+"branch 2" color :  [] 
+"23gat" image :  [] 
+"10gat" image :  [] 
+"3gat" color :  [] 
+"11gat" image :  [] 
+"16gat" image :  [] 
+"7gat" color :  [] 
+"19gat" image :  [] 
+"3gat" -> "branch 1" "6gat" -> "11gat" "2gat" -> "16gat" "10gat" -> "22gat" "7gat" -> "19gat" "branch 3" -> "23gat" "branch 2" -> "16gat" "branch 1" -> "11gat" "branch 3" -> "22gat" "11gat" -> "branch 2" "branch 1" -> "10gat" "branch 2" -> "19gat" "19gat" -> "23gat" "1gat" -> "10gat" "16gat" -> "branch 3" 
+}
+
+digraph GraphID 
+{
+1 label :  [] 
+2 label :  [] 
+3 label :  [] 
+4 label :  [] 
+5 label :  [] 
+6 label :  [] 
+7 label :  [] 
+8 label :  [] 
+9 label :  [] 
+10 label :  [] 
+11 label :  [] 
+12 label :  [] 
+13 label :  [] 
+14 label :  [] 
+15 label :  [] 
+16 label :  [] 
+17 label :  [] 
+1 -> 2 label :  [] 
+2 -> 3 label :  [] 
+3 -> 4 label :  [] 
+4 -> 5 label :  [] 
+5 -> 6 label :  [] 
+6 -> 7 label :  [] 
+7 -> 8 label :  [] 
+8 -> 9 label :  [] 
+9 -> 10 label :  [] 
+10 -> 11 label :  [] 
+10 -> 15 label :  [] 
+11 -> 12 label :  [] 
+12 -> 13 label :  [] 
+13 -> 14 label :  [] 
+14 -> 9 label :  [] 
+14 -> 15 label :  [] 
+15 -> 16 label :  [] 
+16 -> 17 label :  [] 
+
+}
+
+graph GraphID 
+{
+1 label :  [] 
+2 label :  [] 
+1 -- 2 label :  [] 
+
+}
+
+graph GraphID 
+{
+1 label :  [] 
+2 label :  [] 
+3 label :  [] 
+1 -- 2 label :  [] 
+3 -- 2 label :  [] 
+3 -- 1 label :  [] 
+
+}
+
+graph GraphID 
+{
+1 label :  [] 
+2 label :  [] 
+3 label :  [] 
+4 label :  [] 
+1 -- 2 label :  [] 
+3 -- 2 label :  [] 
+3 -- 1 label :  [] 
+4 -- 3 label :  [] 
+4 -- 2 label :  [] 
+4 -- 1 label :  [] 
+
+}
+
+digraph GraphID 
+{
+1 label :  [] 
+2 label :  [] 
+3 label :  [] 
+4 label :  [] 
+5 label :  [] 
+6 label :  [] 
+7 label :  [] 
+8 label :  [] 
+9 label :  [] 
+10 label :  [] 
+11 label :  [] 
+12 label :  [] 
+13 label :  [] 
+14 label :  [] 
+15 label :  [] 
+16 label :  [] 
+17 label :  [] 
+18 label :  [] 
+19 label :  [] 
+20 label :  [] 
+21 label :  [] 
+22 label :  [] 
+1 -> 2 label :  [] 
+2 -> 3 label :  [] 
+3 -> 4 label :  [] 
+4 -> 5 label :  [] 
+5 -> 6 label :  [] 
+6 -> 7 label :  [] 
+7 -> 8 label :  [] 
+8 -> 9 label :  [] 
+9 -> 10 label :  [] 
+10 -> 11 label :  [] 
+11 -> 13 label :  [] 
+11 -> 18 label :  [] 
+11 -> 12 label :  [] 
+12 -> 13 label :  [] 
+13 -> 14 label :  [] 
+14 -> 15 label :  [] 
+15 -> 16 label :  [] 
+16 -> 17 label :  [] 
+17 -> 8 label :  [] 
+17 -> 18 label :  [] 
+18 -> 19 label :  [] 
+19 -> 20 label :  [] 
+20 -> 21 label :  [] 
+21 -> 22 label :  [] 
+
+}
+
+digraph GraphID 
+{
+1 label :  [] 
+2 label :  [] 
+3 label :  [] 
+4 label :  [] 
+5 label :  [] 
+6 label :  [] 
+7 label :  [] 
+8 label :  [] 
+9 label :  [] 
+10 label :  [] 
+11 label :  [] 
+12 label :  [] 
+13 label :  [] 
+14 label :  [] 
+15 label :  [] 
+16 label :  [] 
+17 label :  [] 
+1 -> 2 label :  [] 
+2 -> 3 label :  [] 
+3 -> 4 label :  [] 
+4 -> 5 label :  [] 
+5 -> 6 label :  [] 
+6 -> 7 label :  [] 
+7 -> 8 label :  [] 
+8 -> 9 label :  [] 
+9 -> 10 label :  [] 
+9 -> 13 label :  [] 
+10 -> 11 label :  [] 
+11 -> 12 label :  [] 
+12 -> 6 label :  [] 
+12 -> 13 label :  [] 
+13 -> 14 label :  [] 
+14 -> 15 label :  [] 
+15 -> 16 label :  [] 
+16 -> 17 label :  [] 
+
+}
+
+digraph GraphID 
+{
+1 label :  [] 
+2 label :  [] 
+3 label :  [] 
+4 label :  [] 
+5 label :  [] 
+6 label :  [] 
+7 label :  [] 
+8 label :  [] 
+9 label :  [] 
+10 label :  [] 
+11 label :  [] 
+12 label :  [] 
+13 label :  [] 
+14 label :  [] 
+15 label :  [] 
+1 -> 2 label :  [] 
+2 -> 3 label :  [] 
+3 -> 4 label :  [] 
+4 -> 5 label :  [] 
+5 -> 6 label :  [] 
+6 -> 7 label :  [] 
+7 -> 8 label :  [] 
+7 -> 11 label :  [] 
+8 -> 9 label :  [] 
+9 -> 10 label :  [] 
+10 -> 6 label :  [] 
+10 -> 11 label :  [] 
+11 -> 12 label :  [] 
+12 -> 13 label :  [] 
+13 -> 14 label :  [] 
+14 -> 15 label :  [] 
+
+}
+
+digraph GraphID 
+{
+"1" color :  [] 
+"2gat" color :  [] 
+"3gat" image :  [] 
+"1gat" -> "3gat" label :  [] 
+"2gat" -> "3gat" -> Z1 
+}
+

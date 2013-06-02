@@ -195,9 +195,10 @@ void Edge_stmt(): {}
  /* [Node_id() | Subgraph()] EdgeRHS() [Attr_list()] */
 }
 
-void Attr_smt() #void: {}
+void Attr_smt(): {Token gen=null;}
 {
-  (<GRAPH> |< ATTR_SMT >) Attr_list()
+   (gen = <GRAPH> | gen = < ATTR_SMT >){jjtThis.value = gen.image;}
+   Attr_list()
 }
 
 void Node_id(): {Token id;}

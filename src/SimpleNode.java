@@ -24,6 +24,9 @@ public class SimpleNode implements Node {
 		return serial;
 	}
 
+	public SimpleNode getParent(){
+		return (SimpleNode)this.jjtGetParent();
+	}
 	public SimpleNode(int i) {
 		id = i;
 		serial++;

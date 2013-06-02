@@ -10,5 +10,6 @@ class ASTStmt extends SimpleNode {
     super(p, id);
   }
 
+  public String toString() { return value.toString(); }
 }
 /* JavaCC - OriginalChecksum=d2f3f48ad3d885b4f594fdcf1fad2b01 (do not edit this line) */
